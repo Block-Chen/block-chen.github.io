@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blockchen · 다봄 PDF / Dabom PDF</title>
+  <meta name="description" content="Blockchen · 다봄 PDF(Dabom PDF) 개인정보 처리방침과 이용약관 · Privacy Policy and Terms of Service">
+  <meta name="robots" content="index,follow">
+  <meta name="color-scheme" content="light dark">
+  <!-- 언어 선택: 주소의 #ko / #en 또는 ?lang= 값을 먼저 보고, 없으면 브라우저 언어를 따른다. 스크립트가 없으면 두 언어가 모두 보인다. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      // 주소의 해시에서 언어를 읽는다: #ko, #en, 또는 #ko-s3 같은 절 링크
+      function fromHash() {
+        var m = /^#(ko|en)(?:-|$)/.exec(location.hash);
+        return m ? m[1] : null;
+      }
+
+      // 주소의 ?lang=ko 또는 ?lang=en
+      function fromQuery() {
+        var m = /[?&]lang=(ko|en)(?:&|$)/.exec(location.search);
+        return m ? m[1] : null;
+      }
+
+      // 브라우저 언어가 ko, ko-KR 처럼 ko로 시작하면 한국어, 아니면 영어
+      function fromBrowser() {
+        var l = navigator.language || (navigator.languages && navigator.languages[0]) || '';
+        return /^ko(?:-|$)/i.test(l) ? 'ko' : 'en';
+      }
+
+      // html 요소에 현재 언어를 적용한다. CSS가 data-lang을 보고 반대쪽 본문을 숨긴다.
+      function apply(lang) {
+        root.setAttribute('data-lang', lang);
+        root.lang = lang;
+      }
+
+      // 언어 버튼 표시를 맞추고, 다른 문서로 가는 링크에도 현재 언어를 붙인다.
+      function sync() {
+        var lang = root.getAttribute('data-lang');
+        var buttons = document.querySelectorAll('.lang-switch a[data-lang]');
+        var links = document.querySelectorAll('a[data-keep-lang]');
+        var i;
+        for (i = 0; i < buttons.length; i++) {
+          if (buttons[i].getAttribute('data-lang') === lang) {
+            buttons[i].setAttribute('aria-current', 'true');
+          } else {
+            buttons[i].removeAttribute('aria-current');
+          }
+        }
+        for (i = 0; i < links.length; i++) {
+          links[i].setAttribute('href', links[i].getAttribute('href').split('#')[0] + '#' + lang);
+        }
+      }
+
+      // 버튼을 눌렀을 때: 새로고침 없이 바꾸고 주소의 해시도 함께 바꾼다.
+      function choose(lang) {
+        apply(lang);
+        sync();
+        try {
+          history.replaceState(null, '', '#' + lang);
+        } catch (e) {
+          location.hash = lang;
+        }
+      }
+
+      // 먼저 해시, 다음 ?lang=, 마지막으로 브라우저 언어 순서로 정한다.
+      apply(fromHash() || fromQuery() || fromBrowser());
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var buttons = document.querySelectorAll('.lang-switch a[data-lang]');
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            choose(this.getAttribute('data-lang'));
+          });
+        }
+        sync();
+      });
+
+      // 주소창에서 해시를 바꿨거나 다른 언어의 절 링크로 들어온 경우
+      window.addEventListener('hashchange', function () {
+        var lang = fromHash();
+        if (lang && lang !== root.getAttribute('data-lang')) {
+          apply(lang);
+          sync();
+          var target = document.getElementById(location.hash.slice(1));
+          if (target) {
+            target.scrollIntoView();
+          }
+        }
+      });
+    })();
+  </script>
+  <style>
+    /* 색상은 변수로 두고, 어두운 화면 설정이면 아래 media 블록에서 덮어쓴다 */
+    :root {
+      color-scheme: light dark;
+      --bg: #fbfaf8;
+      --surface: #f1efea;
+      --text: #1f1f23;
+      --muted: #62626b;
+      --border: #dad6cf;
+      --accent: #C8371F;
+      --on-accent: #ffffff;
+      --link: #C8371F;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #151517;
+        --surface: #212125;
+        --text: #e9e7e3;
+        --muted: #a7a49e;
+        --border: #3a3a40;
+        --link: #FF8D72;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-wrap: break-word;
+    }
+
+    /* 본문 폭 720px + 좌우 여백 16px */
+    .page {
+      max-width: 752px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.15em;
+    }
+
+    a:focus-visible,
+    .table-wrap:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
+
+    /* 위쪽 줄: 이름표와 언어 전환 */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 0 12px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      margin-left: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .lang-switch a {
+      padding: 8px 16px;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .lang-switch a + a {
+      border-left: 1px solid var(--border);
+    }
+
+    /* 바깥 상자가 넘치는 부분을 잘라 내므로 포커스 표시는 안쪽에 그린다 */
+    .lang-switch a:focus-visible {
+      outline-offset: -2px;
+    }
+
+    /* 지금 보는 언어의 버튼에만 포인트 색을 쓴다 */
+    html[data-lang="ko"] .lang-switch a[data-lang="ko"],
+    html[data-lang="en"] .lang-switch a[data-lang="en"] {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    /* 선택되지 않은 언어는 숨긴다. 자바스크립트가 없으면 data-lang이 없어 둘 다 보이고 한국어가 먼저다 */
+    html[data-lang="ko"] article[lang="en"],
+    html[data-lang="ko"] .t[lang="en"],
+    html[data-lang="en"] article[lang="ko"],
+    html[data-lang="en"] .t[lang="ko"] {
+      display: none;
+    }
+
+    html:not([data-lang]) .t[lang="ko"] + .t[lang="en"]::before {
+      content: " / ";
+    }
+
+    /* 다른 쪽으로 가는 링크 */
+    .doc-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      padding: 0 0 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    /* 본문 */
+    article {
+      padding: 24px 0 8px;
+      scroll-margin-top: 7rem;
+    }
+
+    article[lang="ko"] {
+      word-break: keep-all;
+    }
+
+    h1 {
+      margin: 0 0 0.3em;
+      font-size: 1.65rem;
+      line-height: 1.3;
+    }
+
+    .lang-tag {
+      margin-left: 0.25em;
+      color: var(--muted);
+      font-size: 0.6em;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    h2 {
+      margin: 2.2em 0 0.6em;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      scroll-margin-top: 1rem;
+    }
+
+    p,
+    ul,
+    ol {
+      margin: 0 0 1em;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.5em;
+    }
+
+    li + li {
+      margin-top: 0.4em;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* 목차 */
+    .toc {
+      margin: 1.5em 0 0.5em;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .toc-title {
+      margin: 0 0 0.4em;
+      font-weight: 700;
+    }
+
+    .toc ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc li + li {
+      margin-top: 0.15em;
+    }
+
+    @media (min-width: 600px) {
+      .toc ul {
+        column-count: 2;
+        column-gap: 28px;
+      }
+
+      .toc li {
+        break-inside: avoid;
+      }
+    }
+
+    /* 표: 좁은 화면에서는 표 상자 안에서만 가로로 스크롤한다 */
+    .table-wrap {
+      margin: 0 0 1.25em;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    table.c2 {
+      min-width: 18rem;
+    }
+
+    table.c3 {
+      min-width: 28rem;
+    }
+
+    table.c4 {
+      min-width: 36rem;
+    }
+
+    table.c5 {
+      min-width: 42rem;
+    }
+
+    th,
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface);
+      font-weight: 700;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    /* 첫 화면(회사 소개) */
+    .app {
+      margin: 1.5em 0;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .app h2 {
+      margin-top: 0;
+    }
+
+    .alt-name {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .app p {
+      margin-bottom: 0.6em;
+    }
+
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-bottom: 0;
+    }
+
+    .site-footer {
+      margin-top: 40px;
+      padding: 16px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .site-footer .doc-nav {
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    @media print {
+      .site-header,
+      .doc-nav,
+      .toc,
+      .site-footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <nav class="lang-switch" aria-label="언어 선택 / Language">
+        <a href="#ko" data-lang="ko" lang="ko">한국어</a>
+        <a href="#en" data-lang="en" lang="en">English</a>
+      </nav>
+    </header>
+    <main>
+      <!-- 한국어 -->
+      <article id="ko" lang="ko">
+        <h1>Blockchen</h1>
+        <p class="meta">주식회사 블록첸 (Blockchen Co., Ltd.)</p>
+        <section class="app">
+          <h2>다봄 PDF <span class="alt-name">/ Dabom PDF</span></h2>
+          <p class="app-links">
+            <a href="dabom-pdf/privacy/" data-keep-lang>개인정보 처리방침</a>
+            <a href="dabom-pdf/terms/" data-keep-lang>이용약관</a>
+          </p>
+        </section>
+        <p>문의: <a href="mailto:support@blocksdk.com">support@blocksdk.com</a></p>
+      </article>
+      <!-- English -->
+      <article id="en" lang="en">
+        <h1>Blockchen</h1>
+        <p class="meta">Blockchen Co., Ltd.</p>
+        <section class="app">
+          <h2>Dabom PDF <span class="alt-name">/ 다봄 PDF</span></h2>
+          <p class="app-links">
+            <a href="dabom-pdf/privacy/" data-keep-lang>Privacy Policy</a>
+            <a href="dabom-pdf/terms/" data-keep-lang>Terms of Service</a>
+          </p>
+        </section>
+        <p>Contact: <a href="mailto:support@blocksdk.com">support@blocksdk.com</a></p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
