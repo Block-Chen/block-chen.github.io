@@ -276,6 +276,16 @@
       font-size: 0.92rem;
     }
 
+    /* 변경 안내: 시행 예정일 · 이전 판 링크 */
+    .notice {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: var(--surface);
+      font-size: 0.92rem;
+    }
+
     /* 목차 */
     .toc {
       margin: 1.5em 0 0.5em;
@@ -431,9 +441,12 @@
       <!-- 한국어 본문 -->
       <article id="ko" lang="ko">
         <h1>개인정보처리방침 <span class="lang-tag">(한국어)</span></h1>
-        <p class="meta">시행일: 2026년 11월 4일</p>
+        <p class="meta">시행일: 2026년 11월 11일 · 게시일: 2026년 11월 4일</p>
+        <p class="notice">2026년 11월 11일부터 바뀌는 내용: 이용 통계 · 광고 성과 측정(Google Analytics for Firebase), 앱의 의견
+          보내기 · 별점 · 구독 결제 확인(회사 서버)과 통신 위탁(Cloudflare)을 1 · 3 · 4 · 5 · 9절에 더했습니다. 그 전까지는 <a href="2026-11-04/#ko">이전 처리방침(2026년 11월 4일 시행)</a>이 적용됩니다.</p>
         <p>주식회사 블록첸(이하 “회사”)는 다봄 PDF 앱(이하 “앱”)에서 회원 가입을 받지 않고, 이용자의 문서 · 내 정보 · 서명을
-          서버로 받지 않습니다. 회사가 직접 받는 개인정보는 이용자가 보낸 문의 메일뿐이며, 광고와 결제는 Google이 처리합니다. 회사는 「개인정보 보호법」
+          서버로 받지 않습니다. 회사가 직접 받는 개인정보는 이용자가 보낸 문의 메일 · 의견 · 별점과 구독 확인에 필요한 결제 정보뿐이며, 광고 · 결제 처리 · 이용 통계는
+          Google이 맡습니다. 회사는 「개인정보 보호법」
           등 관련 법령을 지키며 아래와 같이 개인정보를 처리합니다.</p>
         <!-- 목차: 각 절의 제목으로 이동 -->
         <nav class="toc" aria-label="목차">
@@ -467,10 +480,17 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>문의 · 의견 처리</td>
-                  <td>이메일 주소, 문의 내용, 이용자가 고른 경우 기기 모델 · OS 버전 · 앱 버전</td>
+                  <td>문의 메일</td>
+                  <td>이메일 주소, 문의 내용(이용자가 적은 기기 정보 포함)</td>
                   <td>문의 답변, 오류 확인</td>
-                  <td>이용자가 메일 앱으로 보냄</td>
+                  <td>이용자가 메일로 보냄</td>
+                </tr>
+                <tr>
+                  <td>의견 보내기 · 앱 평가</td>
+                  <td>의견 내용 · 유형 · 항목, 별점, 이용자가 적은 경우 회신 이메일 주소, 기기 모델 · OS 버전 · 앱 버전(의견은 이용자가 고른
+                    경우만), 앱 언어, 설치 ID</td>
+                  <td>의견 답변, 오류 확인, 서비스 개선</td>
+                  <td>이용자가 앱에서 보낼 때 회사 서버로 전송</td>
                 </tr>
                 <tr>
                   <td>광고 제공</td>
@@ -479,10 +499,23 @@
                   <td>앱에 들어 있는 Google AdMob SDK가 자동 수집</td>
                 </tr>
                 <tr>
+                  <td>이용 통계 · 광고 성과 측정</td>
+                  <td>앱 인스턴스 ID, 광고 ID, IP 주소에서 얻은 대략적인 위치, 기기 정보(모델 · OS · 언어), 앱 이용 기록(실행 · 화면 · 연 문서의
+                    형식 · 쓴 도구 종류 · 결제 화면 보기 · 구독 시작과 구매 상품 · 금액), 광고 노출 · 광고 수익 금액</td>
+                  <td>서비스 개선, 회사 광고 캠페인(Google Ads)의 성과 측정 · 최적화</td>
+                  <td>앱에 들어 있는 Google Analytics for Firebase SDK가 자동 수집</td>
+                </tr>
+                <tr>
                   <td>프리미엄 구독</td>
-                  <td>주문 번호, 구매 토큰, 상품 · 구독 상태</td>
-                  <td>구독 확인 · 복원, 환불 · 문의 처리</td>
-                  <td>Google Play 결제에서 받음</td>
+                  <td>주문 번호, 구매 토큰, 상품 · 요금제, 결제 금액 · 통화 · 결제 국가, 구매 시각, 구독 상태, 앱 버전 · 언어, 설치 ID</td>
+                  <td>구독 확인 · 복원, 매출 관리, 환불 · 문의 처리</td>
+                  <td>Google Play 결제에서 받고, 앱이 회사 서버로 보내 Google Play로 확인</td>
+                </tr>
+                <tr>
+                  <td>서비스 보안</td>
+                  <td>IP 주소, 접속 시각</td>
+                  <td>반복 전송 · 부정 이용 방지</td>
+                  <td>앱이 회사 서버와 통신할 때 자동 생성</td>
                 </tr>
                 <tr>
                   <td>서비스 개선</td>
@@ -493,8 +526,10 @@
               </tbody>
             </table>
           </div>
-          <p>회사는 문서 파일과 그 내용, 편집 결과, 내 정보(양식 채우기용 이름 · 연락처 · 주소 등), 서명 그림, 신분증 촬영 이미지, 글자 인식 ·
-            AI 요약 결과를 받지 않습니다.</p>
+          <p>회사는 문서 파일과 그 내용, 문서 파일 이름과 경로, 편집 결과, 내 정보(양식 채우기용 이름 · 연락처 · 주소 등), 서명 그림, 신분증 촬영 이미지, 글자 인식 ·
+            AI 요약 결과를 받지 않습니다. 이용 통계에는 연 문서의 형식(PDF · Word 등)만 담깁니다.</p>
+          <p>설치 ID는 앱이 기기 안에서 만든 무작위 값입니다. 기기 ID · 광고 ID와 연결하지 않으며, 같은 기기의 반복 전송을 막고 별점을 한 번만
+            세는 데만 씁니다.</p>
         </section>
         <section aria-labelledby="ko-s2">
           <h2 id="ko-s2">2. 기기 안에서만 처리하는 정보</h2>
@@ -521,7 +556,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>문의 메일</td>
+                  <td>문의 메일 · 의견</td>
                   <td>답변을 끝낸 뒤 3년</td>
                   <td>「전자상거래 등에서의 소비자보호에 관한 법률」 소비자 불만 · 분쟁처리 기록</td>
                 </tr>
@@ -531,9 +566,24 @@
                   <td>같은 법 — 계약 · 청약철회, 대금결제 · 공급 기록</td>
                 </tr>
                 <tr>
+                  <td>별점</td>
+                  <td>받은 날부터 3년</td>
+                  <td>서비스 개선 기록</td>
+                </tr>
+                <tr>
+                  <td>서버 접속 기록(IP 주소)</td>
+                  <td>반복 전송 제한에는 10분만 쓰고, 접속 기록은 최대 3개월 뒤 삭제</td>
+                  <td>보안 · 부정 이용 방지</td>
+                </tr>
+                <tr>
                   <td>광고 정보</td>
                   <td>Google 정책에 따름</td>
                   <td>회사는 보관하지 않음</td>
+                </tr>
+                <tr>
+                  <td>이용 통계</td>
+                  <td>수집 후 최대 14개월, 지나면 자동 삭제</td>
+                  <td>Google Analytics 데이터 보관 설정. 회사는 집계 보고서만 봄</td>
                 </tr>
                 <tr>
                   <td>기기 안 정보</td>
@@ -546,8 +596,8 @@
         </section>
         <section aria-labelledby="ko-s4">
           <h2 id="ko-s4">4. 제3자 제공과 국외 이전</h2>
-          <p>앱에 들어 있는 Google 기능이 아래 정보를 Google LLC(미국)로 보냅니다. 회사는 법령에 따른 경우를 빼고 이 밖의 제3자에게 개인정보를
-            제공하지 않습니다.</p>
+          <p>앱에 들어 있는 Google 기능이 아래 정보를 Google LLC(미국)로 보내고, 앱과 회사 서버 사이의 통신은 Cloudflare, Inc.(미국)를
+            거칩니다. 회사는 법령에 따른 경우를 빼고 이 밖의 제3자에게 개인정보를 제공하지 않습니다.</p>
           <div class="table-wrap" role="region" aria-labelledby="ko-s4" tabindex="0">
             <table class="c5">
               <thead>
@@ -568,6 +618,14 @@
                   <td>광고 ID를 삭제하면 맞춤형이 아닌 광고가 나오고, 프리미엄을 구독하면 광고가 없어집니다</td>
                 </tr>
                 <tr>
+                  <td>Google Analytics for Firebase</td>
+                  <td>앱 인스턴스 ID, 광고 ID, IP 주소(일부를 가린 뒤 대략적인 위치만 얻음), 기기 정보, 앱 이용 기록, 광고 수익 금액</td>
+                  <td>이용 통계, 광고 성과 측정 · 최적화(Google Ads)</td>
+                  <td>앱을 쓰는 동안 암호화 통신으로 수시 전송</td>
+                  <td>광고 ID를 삭제하면 광고 ID 없이 보냅니다. 유럽 경제 지역 · 영국 · 스위스 이용자는 동의 폼(설정 › 개인정보 옵션)에서 거부할 수
+                    있고, 거부하면 식별자 없이 집계에만 쓰입니다</td>
+                </tr>
+                <tr>
                   <td>Google Play 결제</td>
                   <td>구매 · 구독 정보</td>
                   <td>결제 처리 · 구독 관리</td>
@@ -581,15 +639,28 @@
                   <td>스캔 · 글자 인식 · AI 요약을 쓸 때</td>
                   <td>해당 기능을 쓰지 않으면 보내지 않음</td>
                 </tr>
+                <tr>
+                  <td>Cloudflare(회사 서버 통신, 처리 위탁)</td>
+                  <td>IP 주소, 앱이 회사 서버로 보내는 의견 · 별점 · 구독 결제 확인 정보</td>
+                  <td>통신 전달, 공격 · 부정 이용 차단</td>
+                  <td>앱이 회사 서버와 통신할 때 암호화 통신으로</td>
+                  <td>의견 · 별점을 보내지 않으면 해당 정보는 보내지 않음. 구독 결제 확인은 구독 이용에 필요</td>
+                </tr>
               </tbody>
             </table>
           </div>
           <p>받는 자: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. 보유 기간과
             연락 방법은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>을 따릅니다.</p>
+          <p>Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA. 보유 기간과 연락 방법은
+            <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare 개인정보처리방침</a>을 따릅니다.</p>
         </section>
         <section aria-labelledby="ko-s5">
           <h2 id="ko-s5">5. 처리 위탁</h2>
-          <p>회사는 문의 메일을 받아 보관하는 데 주식회사 다우기술의 다우오피스를 씁니다. 이 밖에 개인정보 처리 업무를 맡기지 않습니다.</p>
+          <p>회사는 아래 업무를 맡깁니다. 이 밖에 개인정보 처리 업무를 맡기지 않습니다.</p>
+          <ul>
+            <li>주식회사 다우기술(다우오피스): 문의 메일 수신 · 보관</li>
+            <li>Cloudflare, Inc.(미국): 앱과 회사 서버 사이 통신의 전달 · 보안(국외 이전 내용은 4절)</li>
+          </ul>
         </section>
         <section aria-labelledby="ko-s6">
           <h2 id="ko-s6">6. 파기 절차와 방법</h2>
@@ -616,6 +687,7 @@
           <ul>
             <li>기기 안 내 정보 · 서명을 암호화해 저장</li>
             <li>문의 메일에 접근하는 직원을 최소화하고, 메일 계정에 2단계 인증 적용</li>
+            <li>의견 · 별점 · 결제 정보를 보는 관리 화면은 사내망에서만 열리고 인증된 직원만 접근</li>
             <li>개인정보를 다루는 직원에게 연 1회 이상 보호 교육</li>
           </ul>
         </section>
@@ -636,16 +708,22 @@
         <section aria-labelledby="ko-s12">
           <h2 id="ko-s12">12. 처리방침의 변경</h2>
           <p>이 처리방침을 바꾸면 시행 7일 전(이용자에게 불리한 변경은 30일 전)에 게시 페이지에 알립니다.</p>
-          <p>시행일: 2026년 11월 4일</p>
+          <p>시행일: 2026년 11월 11일</p>
+          <p>이전 처리방침: <a href="2026-11-04/#ko">2026년 11월 4일 ~ 11월 10일 적용</a></p>
         </section>
       </article>
       <!-- English text -->
       <article id="en" lang="en">
         <h1>Privacy Policy <span class="lang-tag">(English)</span></h1>
-        <p class="meta">Effective date: November 4, 2026</p>
+        <p class="meta">Effective date: November 11, 2026 · Posted: November 4, 2026</p>
+        <p class="notice">What changes on November 11, 2026: we added analytics and ad measurement with Google Analytics
+          for Firebase, in-app feedback, ratings and subscription checks on our server, and Cloudflare as our network
+          provider (sections 2, 4, 5, 6 and 8). Until then, the <a href="2026-11-04/#en">previous version (effective
+          November 4, 2026)</a> applies.</p>
         <p>Dabom PDF works without an account and keeps your documents on your device. The only
-          personal data Blockchen Co., Ltd. (“we”) receives directly is what you send us by
-          email; ads and payments are handled by Google.</p>
+          personal data Blockchen Co., Ltd. (“we”) receives directly is what you send us (support
+          emails, in-app feedback and ratings) and the purchase details we need to confirm your
+          subscription; ads, payment processing and app analytics are handled by Google.</p>
         <!-- Table of contents -->
         <nav class="toc" aria-label="Contents">
           <p class="toc-title">Contents</p>
@@ -688,6 +766,14 @@
                   <td>Legitimate interests</td>
                 </tr>
                 <tr>
+                  <td>In-app feedback and ratings (our server)</td>
+                  <td>Your message, its type and topic, your star rating, a reply email address if
+                    you enter one, device model, OS and app version (for feedback, only if you choose
+                    to include them), app language and install ID</td>
+                  <td>Answer your feedback, fix bugs, improve the app</td>
+                  <td>Legitimate interests</td>
+                </tr>
+                <tr>
                   <td>Advertising (Google AdMob)</td>
                   <td>Advertising ID, IP address, device information, ad views and clicks</td>
                   <td>Show and measure ads, prevent ad fraud</td>
@@ -695,10 +781,27 @@
                     ads</td>
                 </tr>
                 <tr>
+                  <td>Analytics and ad measurement (Google Analytics for Firebase)</td>
+                  <td>App instance ID, Advertising ID, approximate location derived from your IP
+                    address, device information, app usage events (launches, screens, the type of
+                    document opened, the tool used, paywall views, subscription starts and
+                    purchases), ad impressions and ad revenue</td>
+                  <td>Improve the app, measure and optimize our Google Ads campaigns</td>
+                  <td>Consent (collected through the consent form; you can change it in Settings ›
+                    Privacy options)</td>
+                </tr>
+                <tr>
                   <td>Premium subscription (Google Play Billing)</td>
-                  <td>Order ID, purchase token, subscription status</td>
-                  <td>Verify and restore your subscription, handle refunds</td>
-                  <td>Contract</td>
+                  <td>Order ID, purchase token, product and plan, price, currency and billing country,
+                    purchase time, subscription status, app version, app language and install ID</td>
+                  <td>Verify and restore your subscription, keep sales records, handle refunds</td>
+                  <td>Contract; legal obligation for sales records</td>
+                </tr>
+                <tr>
+                  <td>Security</td>
+                  <td>IP address and time of requests to our server</td>
+                  <td>Prevent spam and abuse</td>
+                  <td>Legitimate interests</td>
                 </tr>
                 <tr>
                   <td>App stability</td>
@@ -710,8 +813,12 @@
               </tbody>
             </table>
           </div>
-          <p>We never receive your files or their content, your edits, saved form details,
-            signatures, ID card photos, or text recognition and AI summary results.</p>
+          <p>We never receive your files, their names or paths, or their content, your edits, saved form details,
+            signatures, ID card photos, or text recognition and AI summary results. Analytics events only record the type of
+            document you open, such as PDF or Word.</p>
+          <p>The install ID is a random value the app creates on your device. It is not linked to
+            your device ID or advertising ID and is used only to stop repeated submissions and to
+            count each install’s rating once.</p>
         </section>
         <section aria-labelledby="en-s3">
           <h2 id="en-s3">3. Data that stays on your device</h2>
@@ -735,23 +842,29 @@
         <section aria-labelledby="en-s4">
           <h2 id="en-s4">4. Sharing and international transfers</h2>
           <p>The Google features built into the app send the data above to Google LLC in the
-            United States: Google AdMob (advertising data), Google Play Billing (purchase data)
-            and Google Play services (usage statistics). Google LLC relies on its own transfer
+            United States: Google AdMob (advertising data), Google Analytics for Firebase
+            (analytics data, which we also use to measure our Google Ads campaigns), Google Play
+            Billing (purchase data) and Google Play services (usage statistics). Google LLC relies on its own transfer
             safeguards, such as the EU-U.S. Data Privacy Framework and standard contractual
             clauses. See the <a href="https://policies.google.com/privacy">Google Privacy
             Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how
-            Google uses information from apps that use its services</a>. We do not share your
-            personal data with anyone else unless the law requires it.</p>
+            Google uses information from apps that use its services</a>.</p>
+          <p>Requests from the app to our server (feedback, ratings and subscription checks) pass
+            through Cloudflare, Inc. (101 Townsend St, San Francisco, CA 94107, USA), which delivers
+            and protects this traffic on our behalf. See the
+            <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a>. We do
+            not share your personal data with anyone else unless the law requires it.</p>
         </section>
         <section aria-labelledby="en-s5">
           <h2 id="en-s5">5. Your choices and rights</h2>
           <ul>
             <li>Delete or reset your advertising ID in Android settings (the Ads menu in your
               device settings, for example Settings › Privacy › Ads or Settings › Google ›
-              Ads; the location varies by device). Ads then stop being personalized.</li>
-            <li>If you are in the EEA, the UK or Switzerland, we ask before showing
-              personalized ads, and you can change your choice at any time in Settings ›
-              Privacy choices.</li>
+              Ads; the location varies by device). Ads then stop being personalized, and
+              analytics are sent without the advertising ID.</li>
+            <li>If you are in the EEA, the UK or Switzerland, we ask for your consent before
+              showing personalized ads or using analytics with identifiers, and you can change
+              your choice at any time in Settings › Privacy options.</li>
             <li>Premium removes all ads.</li>
             <li>You can ask us to access, correct, delete or restrict the data we hold, object
               to its use, receive a copy, or withdraw consent, by writing to
@@ -776,8 +889,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Support emails</td>
+                  <td>Support emails and in-app feedback</td>
                   <td>3 years after your request is closed</td>
+                </tr>
+                <tr>
+                  <td>Star ratings</td>
+                  <td>3 years from receipt</td>
                 </tr>
                 <tr>
                   <td>Subscription order records</td>
@@ -786,6 +903,15 @@
                 <tr>
                   <td>Advertising data</td>
                   <td>Under Google’s policies; we do not store it</td>
+                </tr>
+                <tr>
+                  <td>Server access logs (IP address)</td>
+                  <td>10 minutes for spam limits; access logs are deleted within 3 months</td>
+                </tr>
+                <tr>
+                  <td>Analytics data (Google Analytics for Firebase)</td>
+                  <td>Up to 14 months under our Google Analytics retention setting, then deleted
+                    automatically; we only see aggregated reports</td>
                 </tr>
                 <tr>
                   <td>Data on your device</td>
@@ -805,13 +931,15 @@
           <h2 id="en-s8">8. Security</h2>
           <p>On-device data is encrypted, Google’s SDKs use encrypted connections, and access to
             our support mailbox is limited to the people who answer it and protected with
-            two-step verification.</p>
+            two-step verification. The admin screens for feedback, ratings and sales can only be
+            opened from our internal network and require sign-in.</p>
         </section>
         <section aria-labelledby="en-s9">
           <h2 id="en-s9">9. Changes</h2>
           <p>We will post changes on this page at least 7 days before they take effect, or 30
             days before for changes that reduce your rights.</p>
-          <p>Effective date: November 4, 2026</p>
+          <p>Effective date: November 11, 2026</p>
+          <p>Previous version: <a href="2026-11-04/#en">effective November 4 to November 10, 2026</a></p>
         </section>
       </article>
     </main>
