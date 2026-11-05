@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR코드 스캐너 개인정보 처리방침 · Privacy Policy</title>
+  <meta name="description" content="QR코드 스캐너(QR Scanner) 개인정보 처리방침 · Privacy Policy of QR Scanner">
+  <meta name="robots" content="index,follow">
+  <meta name="color-scheme" content="light dark">
+  <!-- 언어 선택: 주소의 #ko / #en 또는 ?lang= 값을 먼저 보고, 없으면 브라우저 언어를 따른다. 스크립트가 없으면 두 언어가 모두 보인다. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      // 주소의 해시에서 언어를 읽는다: #ko, #en, 또는 #ko-s3 같은 절 링크
+      function fromHash() {
+        var m = /^#(ko|en)(?:-|$)/.exec(location.hash);
+        return m ? m[1] : null;
+      }
+
+      // 주소의 ?lang=ko 또는 ?lang=en
+      function fromQuery() {
+        var m = /[?&]lang=(ko|en)(?:&|$)/.exec(location.search);
+        return m ? m[1] : null;
+      }
+
+      // 브라우저 언어가 ko, ko-KR 처럼 ko로 시작하면 한국어, 아니면 영어
+      function fromBrowser() {
+        var l = navigator.language || (navigator.languages && navigator.languages[0]) || '';
+        return /^ko(?:-|$)/i.test(l) ? 'ko' : 'en';
+      }
+
+      // html 요소에 현재 언어를 적용한다. CSS가 data-lang을 보고 반대쪽 본문을 숨긴다.
+      function apply(lang) {
+        root.setAttribute('data-lang', lang);
+        root.lang = lang;
+      }
+
+      // 언어 버튼 표시를 맞추고, 다른 문서로 가는 링크에도 현재 언어를 붙인다.
+      function sync() {
+        var lang = root.getAttribute('data-lang');
+        var buttons = document.querySelectorAll('.lang-switch a[data-lang]');
+        var links = document.querySelectorAll('a[data-keep-lang]');
+        var i;
+        for (i = 0; i < buttons.length; i++) {
+          if (buttons[i].getAttribute('data-lang') === lang) {
+            buttons[i].setAttribute('aria-current', 'true');
+          } else {
+            buttons[i].removeAttribute('aria-current');
+          }
+        }
+        for (i = 0; i < links.length; i++) {
+          links[i].setAttribute('href', links[i].getAttribute('href').split('#')[0] + '#' + lang);
+        }
+      }
+
+      // 버튼을 눌렀을 때: 새로고침 없이 바꾸고 주소의 해시도 함께 바꾼다.
+      function choose(lang) {
+        apply(lang);
+        sync();
+        try {
+          history.replaceState(null, '', '#' + lang);
+        } catch (e) {
+          location.hash = lang;
+        }
+      }
+
+      // 먼저 해시, 다음 ?lang=, 마지막으로 브라우저 언어 순서로 정한다.
+      apply(fromHash() || fromQuery() || fromBrowser());
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var buttons = document.querySelectorAll('.lang-switch a[data-lang]');
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            choose(this.getAttribute('data-lang'));
+          });
+        }
+        sync();
+      });
+
+      // 주소창에서 해시를 바꿨거나 다른 언어의 절 링크로 들어온 경우
+      window.addEventListener('hashchange', function () {
+        var lang = fromHash();
+        if (lang && lang !== root.getAttribute('data-lang')) {
+          apply(lang);
+          sync();
+          var target = document.getElementById(location.hash.slice(1));
+          if (target) {
+            target.scrollIntoView();
+          }
+        }
+      });
+    })();
+  </script>
+  <style>
+    /* 색상은 변수로 두고, 어두운 화면 설정이면 아래 media 블록에서 덮어쓴다 */
+    :root {
+      color-scheme: light dark;
+      --bg: #fbfaf8;
+      --surface: #f1efea;
+      --text: #1f1f23;
+      --muted: #62626b;
+      --border: #dad6cf;
+      --accent: #C8371F;
+      --on-accent: #ffffff;
+      --link: #C8371F;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #151517;
+        --surface: #212125;
+        --text: #e9e7e3;
+        --muted: #a7a49e;
+        --border: #3a3a40;
+        --link: #FF8D72;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-wrap: break-word;
+    }
+
+    /* 본문 폭 720px + 좌우 여백 16px */
+    .page {
+      max-width: 752px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.15em;
+    }
+
+    a:focus-visible,
+    .table-wrap:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
+
+    /* 위쪽 줄: 이름표와 언어 전환 */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 0 12px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      margin-left: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .lang-switch a {
+      padding: 8px 16px;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .lang-switch a + a {
+      border-left: 1px solid var(--border);
+    }
+
+    /* 바깥 상자가 넘치는 부분을 잘라 내므로 포커스 표시는 안쪽에 그린다 */
+    .lang-switch a:focus-visible {
+      outline-offset: -2px;
+    }
+
+    /* 지금 보는 언어의 버튼에만 포인트 색을 쓴다 */
+    html[data-lang="ko"] .lang-switch a[data-lang="ko"],
+    html[data-lang="en"] .lang-switch a[data-lang="en"] {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    /* 선택되지 않은 언어는 숨긴다. 자바스크립트가 없으면 data-lang이 없어 둘 다 보이고 한국어가 먼저다 */
+    html[data-lang="ko"] article[lang="en"],
+    html[data-lang="ko"] .t[lang="en"],
+    html[data-lang="en"] article[lang="ko"],
+    html[data-lang="en"] .t[lang="ko"] {
+      display: none;
+    }
+
+    html:not([data-lang]) .t[lang="ko"] + .t[lang="en"]::before {
+      content: " / ";
+    }
+
+    /* 다른 쪽으로 가는 링크 */
+    .doc-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      padding: 0 0 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    /* 본문 */
+    article {
+      padding: 24px 0 8px;
+      scroll-margin-top: 7rem;
+    }
+
+    article[lang="ko"] {
+      word-break: keep-all;
+    }
+
+    h1 {
+      margin: 0 0 0.3em;
+      font-size: 1.65rem;
+      line-height: 1.3;
+    }
+
+    .lang-tag {
+      margin-left: 0.25em;
+      color: var(--muted);
+      font-size: 0.6em;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    h2 {
+      margin: 2.2em 0 0.6em;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      scroll-margin-top: 1rem;
+    }
+
+    p,
+    ul,
+    ol {
+      margin: 0 0 1em;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.5em;
+    }
+
+    li + li {
+      margin-top: 0.4em;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* 변경 안내: 시행 예정일 · 이전 판 링크 */
+    .notice {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: var(--surface);
+      font-size: 0.92rem;
+    }
+
+    /* 목차 */
+    .toc {
+      margin: 1.5em 0 0.5em;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .toc-title {
+      margin: 0 0 0.4em;
+      font-weight: 700;
+    }
+
+    .toc ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc li + li {
+      margin-top: 0.15em;
+    }
+
+    @media (min-width: 600px) {
+      .toc ul {
+        column-count: 2;
+        column-gap: 28px;
+      }
+
+      .toc li {
+        break-inside: avoid;
+      }
+    }
+
+    /* 표: 좁은 화면에서는 표 상자 안에서만 가로로 스크롤한다 */
+    .table-wrap {
+      margin: 0 0 1.25em;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    table.c2 {
+      min-width: 18rem;
+    }
+
+    table.c3 {
+      min-width: 28rem;
+    }
+
+    table.c4 {
+      min-width: 36rem;
+    }
+
+    table.c5 {
+      min-width: 42rem;
+    }
+
+    th,
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface);
+      font-weight: 700;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    /* 첫 화면(회사 소개) */
+    .app {
+      margin: 1.5em 0;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .app h2 {
+      margin-top: 0;
+    }
+
+    .alt-name {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .app p {
+      margin-bottom: 0.6em;
+    }
+
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-bottom: 0;
+    }
+
+    .site-footer {
+      margin-top: 40px;
+      padding: 16px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .site-footer .doc-nav {
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    @media print {
+      .site-header,
+      .doc-nav,
+      .toc,
+      .site-footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <span class="brand">Blockchen</span>
+      <nav class="lang-switch" aria-label="언어 선택 / Language">
+        <a href="#ko" data-lang="ko" lang="ko">한국어</a>
+        <a href="#en" data-lang="en" lang="en">English</a>
+      </nav>
+    </header>
+    <nav class="doc-nav" aria-label="문서 이동 / Site links">
+      <a href="../../" data-keep-lang>← Blockchen</a>
+    </nav>
+    <main>
+      <!-- 한국어 본문 -->
+      <article id="ko" lang="ko">
+        <h1>개인정보처리방침 <span class="lang-tag">(한국어)</span></h1>
+        <p class="meta">시행일: 2026년 11월 5일 · 게시일: 2026년 11월 5일</p>
+        <p>주식회사 블록첸(이하 “회사”)은 QR코드 스캐너 앱(이하 “앱”)에서 회원 가입을 받지 않고, 스캔 내용 · 기록 · 신분증 정보를 서버로 받지 않습니다. 앱을 위한 회사 서버도 없습니다. 회사가 직접 받는 개인정보는 이용자가 보낸 문의 메일뿐이며, 광고와 결제 처리는 Google이 맡습니다. 회사는 「개인정보 보호법」 등 관련 법령을 지키며 아래와 같이 개인정보를 처리합니다.</p>
+        <nav class="toc" aria-label="목차">
+          <p class="toc-title">목차</p>
+          <ul>
+            <li><a href="#ko-s1">1. 처리하는 개인정보와 목적</a></li>
+            <li><a href="#ko-s2">2. 기기 안에서만 처리하는 정보</a></li>
+            <li><a href="#ko-s3">3. 이용자가 요청할 때 하는 통신</a></li>
+            <li><a href="#ko-s4">4. 보유 · 이용 기간</a></li>
+            <li><a href="#ko-s5">5. 제3자 제공과 국외 이전</a></li>
+            <li><a href="#ko-s6">6. 처리 위탁</a></li>
+            <li><a href="#ko-s7">7. 파기 절차와 방법</a></li>
+            <li><a href="#ko-s8">8. 만 14세 미만 아동</a></li>
+            <li><a href="#ko-s9">9. 이용자의 권리와 행사 방법</a></li>
+            <li><a href="#ko-s10">10. 안전성 확보 조치</a></li>
+            <li><a href="#ko-s11">11. 개인정보 보호책임자</a></li>
+            <li><a href="#ko-s12">12. 권익침해 구제 방법</a></li>
+            <li><a href="#ko-s13">13. 처리방침의 변경</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="ko-s1">
+          <h2 id="ko-s1">1. 처리하는 개인정보와 목적</h2>
+          <div class="table-wrap" role="region" aria-labelledby="ko-s1" tabindex="0">
+            <table class="c4">
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">항목</th>
+                  <th scope="col">목적</th>
+                  <th scope="col">수집 방법</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>문의 메일</td>
+                  <td>이메일 주소, 문의 내용(이용자가 적은 기기 정보 포함)</td>
+                  <td>문의 답변, 오류 확인</td>
+                  <td>이용자가 메일로 보냄</td>
+                </tr>
+                <tr>
+                  <td>광고 제공</td>
+                  <td>광고 ID, 앱 세트 ID, IP 주소(대략적인 위치 추정), 기기 정보, 광고 노출 · 클릭 등 앱 이용 기록, 앱 진단 정보</td>
+                  <td>광고 표시, 광고 성과 측정, 부정 클릭 방지</td>
+                  <td>앱에 들어 있는 Google AdMob SDK가 자동 수집</td>
+                </tr>
+                <tr>
+                  <td>광고 제거 구매</td>
+                  <td>주문 번호, 상품, 결제 금액 · 통화 · 결제 국가, 구매 시각</td>
+                  <td>구매 확인, 매출 관리, 환불 · 문의 처리</td>
+                  <td>Google Play 결제에서 처리하며, 회사는 Google Play Console에서 확인</td>
+                </tr>
+                <tr>
+                  <td>서비스 개선</td>
+                  <td>비정상 종료 · 성능 정보(집계)</td>
+                  <td>오류 수정, 안정성 개선</td>
+                  <td>이용자가 기기에서 진단 정보 공유를 켠 경우 Google Play가 제공</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>앱에는 계정과 사용 통계가 없습니다. 회사는 스캔 내용, 스캔 기록, 저장한 코드, 카메라 영상, 신분증 · 여권 정보를 받지 않으며, 이 정보를 광고에 쓰거나 Google에 보내지 않습니다. 결제 수단 정보는 Google이 처리하며 회사에 전달되지 않습니다.</p>
+        </section>
+        <section aria-labelledby="ko-s2">
+          <h2 id="ko-s2">2. 기기 안에서만 처리하는 정보</h2>
+          <ul>
+            <li>스캔 내용, 기록, 저장한 코드는 이 기기에만 보관하며 자동 백업에서 뺍니다. 앱을 삭제하면 함께 삭제됩니다.</li>
+            <li>카메라 영상은 기기 안에서 읽고, 저장하거나 전송하지 않습니다. 이용자가 고른 사진도 기기 안에서만 읽습니다.</li>
+            <li>신분증 · 여권 판독은 기기 안에서만 글자를 읽습니다. 사진은 저장하지 않고, 읽은 내용은 화면을 닫으면 지웁니다. “기록에 저장”을 켠 경우에만 문서 종류, 이름, 국적, 만료일, 일부를 가린 문서 번호를 이 기기에 남깁니다.</li>
+            <li>Wi-Fi 코드의 정보는 이용자가 연결을 요청할 때 기기의 Wi-Fi 연결에만 씁니다.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s3">
+          <h2 id="ko-s3">3. 이용자가 요청할 때 하는 통신</h2>
+          <p>아래 통신은 앱에서 해당 사이트로 바로 이루어지며, 회사는 그 내용을 받지 않습니다. 해당 사이트는 이용자의 IP 주소를 알 수 있고, 자신의 방침에 따라 처리합니다. 이 통신은 앱의 스캔 내용 전송 기록에 남습니다.</p>
+          <ul>
+            <li>링크 열기 · 검색: 이용자가 누르면 스캔한 주소나 내용이 브라우저를 통해 해당 사이트나 검색 서비스로 전달됩니다.</li>
+            <li>링크 미리보기: 설정에서 켠 경우 스캔한 주소마다 한 번 접속해 페이지 제목과 최종 주소를 가져옵니다.</li>
+            <li>상품 · 도서 정보: 이용자가 요청하면 바코드 번호를 Open Food Facts(world.openfoodfacts.org)나 Open Library(openlibrary.org)로 보내 정보를 가져옵니다.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s4">
+          <h2 id="ko-s4">4. 보유 · 이용 기간</h2>
+          <div class="table-wrap" role="region" aria-labelledby="ko-s4" tabindex="0">
+            <table class="c3">
+              <thead>
+                <tr>
+                  <th scope="col">정보</th>
+                  <th scope="col">기간</th>
+                  <th scope="col">근거</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>문의 메일</td>
+                  <td>답변을 끝낸 뒤 3년</td>
+                  <td>「전자상거래 등에서의 소비자보호에 관한 법률」 소비자 불만 · 분쟁처리 기록</td>
+                </tr>
+                <tr>
+                  <td>구매 주문 정보</td>
+                  <td>5년</td>
+                  <td>같은 법 — 계약 · 청약철회, 대금결제 · 공급 기록</td>
+                </tr>
+                <tr>
+                  <td>광고 정보</td>
+                  <td>Google 정책에 따름</td>
+                  <td>회사는 보관하지 않음</td>
+                </tr>
+                <tr>
+                  <td>기기 안 정보</td>
+                  <td>이용자가 지우거나 앱을 삭제할 때까지</td>
+                  <td>회사가 받지 않음</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="ko-s5">
+          <h2 id="ko-s5">5. 제3자 제공과 국외 이전</h2>
+          <p>앱에 들어 있는 Google 기능이 아래 정보를 Google LLC(미국)로 보냅니다. 회사는 법령에 따른 경우를 빼고 이 밖의 제3자에게 개인정보를 제공하지 않습니다.</p>
+          <div class="table-wrap" role="region" aria-labelledby="ko-s5" tabindex="0">
+            <table class="c5">
+              <thead>
+                <tr>
+                  <th scope="col">기능</th>
+                  <th scope="col">이전 항목</th>
+                  <th scope="col">목적</th>
+                  <th scope="col">시기 · 방법</th>
+                  <th scope="col">거부 방법과 그 결과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Google AdMob</td>
+                  <td>광고 ID, 앱 세트 ID, IP 주소, 기기 정보, 광고 반응 기록, 앱 진단 정보</td>
+                  <td>광고 표시 · 측정 · 부정 방지</td>
+                  <td>앱을 쓰는 동안 암호화 통신으로 수시 전송</td>
+                  <td>광고 ID를 삭제하면 맞춤형이 아닌 광고가 나오고, 광고 제거를 구매하면 광고가 나오지 않습니다. 동의가 필요한 지역에서는 맞춤 광고 전에 동의를 묻고, 설정 › 광고 개인정보 설정에서 언제든 바꿀 수 있습니다.</td>
+                </tr>
+                <tr>
+                  <td>Google Play 결제</td>
+                  <td>구매 상품, 결제 정보</td>
+                  <td>결제 처리, 구매 확인</td>
+                  <td>이용자가 구매할 때 암호화 통신으로 전송</td>
+                  <td>구매하지 않으면 전송되지 않으며, 광고가 있는 상태로 모든 기능을 쓸 수 있습니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="ko-s6">
+          <h2 id="ko-s6">6. 처리 위탁</h2>
+          <p>회사는 아래 업무를 맡깁니다. 이 밖에 개인정보 처리 업무를 맡기지 않습니다.</p>
+          <ul>
+            <li>주식회사 다우기술(다우오피스): 문의 메일 수신 · 보관</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s7">
+          <h2 id="ko-s7">7. 파기 절차와 방법</h2>
+          <p>보유 기간이 끝나거나 목적을 이루면 지체 없이 파기합니다. 전자 파일은 복구할 수 없게 삭제하고, 다른 법령으로 보존해야 하는 정보는 따로 보관합니다.</p>
+        </section>
+        <section aria-labelledby="ko-s8">
+          <h2 id="ko-s8">8. 만 14세 미만 아동</h2>
+          <p>앱은 만 14세 미만 아동을 대상으로 하지 않으며, 회사는 아동의 개인정보를 알면서 수집하지 않습니다. 법정대리인이 알려 주면 바로 삭제합니다.</p>
+        </section>
+        <section aria-labelledby="ko-s9">
+          <h2 id="ko-s9">9. 이용자의 권리와 행사 방법</h2>
+          <ul>
+            <li>회사가 가진 개인정보의 열람 · 정정 · 삭제 · 처리정지를 <a href="mailto:support@blocksdk.com">support@blocksdk.com</a>로 요구할 수 있으며, 회사는 10일 안에 조치합니다.</li>
+            <li>기기 안 정보는 앱의 기록 화면에서 직접 지울 수 있고, 앱을 삭제하면 모두 삭제됩니다.</li>
+            <li>광고 ID는 기기 설정에서 삭제하거나 재설정합니다(기기 설정의 ‘광고’ 메뉴, 예: 설정 › 개인정보 보호 › 광고 또는 설정 › Google › 광고 — 기기마다 위치가 다를 수 있음).</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s10">
+          <h2 id="ko-s10">10. 안전성 확보 조치</h2>
+          <ul>
+            <li>기기 안 정보를 앱 전용 저장 공간에 보관하고 자동 백업에서 제외</li>
+            <li>문의 메일에 접근하는 직원을 최소화하고, 메일 계정에 2단계 인증 적용</li>
+            <li>개인정보를 다루는 직원에게 연 1회 이상 보호 교육</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s11">
+          <h2 id="ko-s11">11. 개인정보 보호책임자</h2>
+          <p>성명 송승범, 직책 이사, 이메일 <a href="mailto:support@blocksdk.com">support@blocksdk.com</a></p>
+        </section>
+        <section aria-labelledby="ko-s12">
+          <h2 id="ko-s12">12. 권익침해 구제 방법</h2>
+          <ul>
+            <li>개인정보분쟁조정위원회: 1833-6972, www.kopico.go.kr</li>
+            <li>개인정보침해신고센터: (국번 없이) 118, privacy.kisa.or.kr</li>
+            <li>대검찰청: (국번 없이) 1301, www.spo.go.kr</li>
+            <li>경찰청: (국번 없이) 182, ecrm.police.go.kr</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s13">
+          <h2 id="ko-s13">13. 처리방침의 변경</h2>
+          <p>이 처리방침을 바꾸면 시행 7일 전(이용자에게 불리한 변경은 30일 전)에 게시 페이지에 알립니다.</p>
+          <p>시행일: 2026년 11월 5일</p>
+        </section>
+      </article>
+      <!-- English -->
+      <article id="en" lang="en">
+        <h1>Privacy Policy <span class="lang-tag">(English)</span></h1>
+        <p class="meta">Effective date: November 5, 2026 · Posted: November 5, 2026</p>
+        <p>Blockchen Co., Ltd. (“we”) makes the QR Scanner app (“the app”). The app works without an account and keeps your scans, history and ID details on your device. We run no server for it. The only personal data we receive directly is the email you send us. Google handles ads and payments.</p>
+        <nav class="toc" aria-label="Contents">
+          <p class="toc-title">Contents</p>
+          <ul>
+            <li><a href="#en-s1">1. Data we handle and why</a></li>
+            <li><a href="#en-s2">2. Data that stays on your device</a></li>
+            <li><a href="#en-s3">3. Connections you ask for</a></li>
+            <li><a href="#en-s4">4. How long we keep data</a></li>
+            <li><a href="#en-s5">5. Sharing and transfers abroad</a></li>
+            <li><a href="#en-s6">6. Service providers</a></li>
+            <li><a href="#en-s7">7. Children</a></li>
+            <li><a href="#en-s8">8. Your rights</a></li>
+            <li><a href="#en-s9">9. Security</a></li>
+            <li><a href="#en-s10">10. Contact</a></li>
+            <li><a href="#en-s11">11. Changes to this policy</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="en-s1">
+          <h2 id="en-s1">1. Data we handle and why</h2>
+          <div class="table-wrap" role="region" aria-labelledby="en-s1" tabindex="0">
+            <table class="c4">
+              <thead>
+                <tr>
+                  <th scope="col">Topic</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">How it is collected</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Support email</td>
+                  <td>Email address and your message, including any device details you add</td>
+                  <td>Answering you, checking errors</td>
+                  <td>You send it by email</td>
+                </tr>
+                <tr>
+                  <td>Ads</td>
+                  <td>Advertising ID, app set ID, IP address (used to estimate general location), device details, app use such as ad views and taps, app diagnostics</td>
+                  <td>Showing ads, measuring them, preventing fraud</td>
+                  <td>Collected automatically by the Google AdMob SDK in the app</td>
+                </tr>
+                <tr>
+                  <td>Remove ads purchase</td>
+                  <td>Order number, product, price, currency, country, purchase time</td>
+                  <td>Confirming purchases, sales records, refunds and support</td>
+                  <td>Processed by Google Play; we see it in Google Play Console</td>
+                </tr>
+                <tr>
+                  <td>Improving the app</td>
+                  <td>Crash and performance data, in aggregate</td>
+                  <td>Fixing errors, improving stability</td>
+                  <td>Provided by Google Play if you turned on diagnostics sharing on your device</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The app has no accounts and no usage analytics. We do not receive your scans, history, saved codes, camera video or ID and passport details. These are not used for ads and are not sent to Google. Google handles your payment details and does not pass them to us.</p>
+          <p>Where the GDPR or UK GDPR applies, we rely on your consent for personalized ads, on performing our contract for purchases, and on our legitimate interests for support, non-personalized ads, fraud prevention and app stability.</p>
+        </section>
+        <section aria-labelledby="en-s2">
+          <h2 id="en-s2">2. Data that stays on your device</h2>
+          <ul>
+            <li>Scans, history and saved codes stay on this device and are left out of automatic backup. Uninstalling the app deletes them.</li>
+            <li>Camera video is read on the device and is not stored or sent. Photos you choose are also read only on the device.</li>
+            <li>ID and passport reading recognizes the text on this device only. No photo is stored, and what was read is erased when you close the screen. Only when you turn on “Save to history” does the app keep the document type, names, nationality, expiry date and a partly hidden document number, on this device.</li>
+            <li>Details from a Wi-Fi code are used only to connect your device when you ask.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="en-s3">
+          <h2 id="en-s3">3. Connections you ask for</h2>
+          <p>These connections go straight from the app to the site named, and we do not receive their content. That site can see your IP address and handles data under its own policy. The app records these connections in its log of what was sent.</p>
+          <ul>
+            <li>Opening a link or searching: when you tap, the scanned address or text goes to that site or search service through your browser.</li>
+            <li>Link preview: if you turn it on in Settings, the app visits each scanned address once to get the page title and final address.</li>
+            <li>Product and book details: when you ask, the app sends the barcode number to Open Food Facts (world.openfoodfacts.org) or Open Library (openlibrary.org).</li>
+          </ul>
+        </section>
+        <section aria-labelledby="en-s4">
+          <h2 id="en-s4">4. How long we keep data</h2>
+          <div class="table-wrap" role="region" aria-labelledby="en-s4" tabindex="0">
+            <table class="c3">
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Period</th>
+                  <th scope="col">Basis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Support email</td>
+                  <td>3 years after we answer</td>
+                  <td>Korean e-commerce consumer protection law, complaint and dispute records</td>
+                </tr>
+                <tr>
+                  <td>Purchase orders</td>
+                  <td>5 years</td>
+                  <td>The same law, contract and payment records</td>
+                </tr>
+                <tr>
+                  <td>Ad data</td>
+                  <td>Under Google's policies</td>
+                  <td>We do not keep it</td>
+                </tr>
+                <tr>
+                  <td>Data on your device</td>
+                  <td>Until you delete it or uninstall the app</td>
+                  <td>We do not receive it</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="en-s5">
+          <h2 id="en-s5">5. Sharing and transfers abroad</h2>
+          <p>Google features in the app send the data below to Google LLC in the United States. We do not give personal data to anyone else unless the law requires it.</p>
+          <div class="table-wrap" role="region" aria-labelledby="en-s5" tabindex="0">
+            <table class="c5">
+              <thead>
+                <tr>
+                  <th scope="col">Feature</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">When and how</th>
+                  <th scope="col">How to refuse, and what happens</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Google AdMob</td>
+                  <td>Advertising ID, app set ID, IP address, device details, ad activity, app diagnostics</td>
+                  <td>Showing and measuring ads, preventing fraud</td>
+                  <td>Sent over encrypted connections while you use the app</td>
+                  <td>If you delete your advertising ID, ads are no longer personalized. If you buy Remove ads, the app shows no ads. Where consent is required, the app asks before personalized ads, and you can change this at any time in Settings › Ad privacy settings.</td>
+                </tr>
+                <tr>
+                  <td>Google Play billing</td>
+                  <td>Product bought, payment details</td>
+                  <td>Processing and confirming payment</td>
+                  <td>Sent over encrypted connections when you buy</td>
+                  <td>Nothing is sent if you do not buy. All features still work, with ads.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="en-s6">
+          <h2 id="en-s6">6. Service providers</h2>
+          <p>Daou Technology Inc. (Daou Office) receives and stores our support email. We use no other provider for personal data.</p>
+        </section>
+        <section aria-labelledby="en-s7">
+          <h2 id="en-s7">7. Children</h2>
+          <p>The app is not directed at children. We do not knowingly collect personal data from children under 13, or under the minimum age set by your country. If you believe a child has sent us personal data, contact us and we will delete it.</p>
+        </section>
+        <section aria-labelledby="en-s8">
+          <h2 id="en-s8">8. Your rights</h2>
+          <ul>
+            <li>You can ask to see, correct, delete or stop the use of personal data we hold by writing to <a href="mailto:support@blocksdk.com">support@blocksdk.com</a>. We act within 10 days.</li>
+            <li>You can delete data on your device from the app's history screen. Uninstalling the app deletes all of it.</li>
+            <li>You can delete or reset your advertising ID in your device settings, usually under Privacy › Ads or Google › Ads.</li>
+            <li>In the European Economic Area, the UK and Switzerland, you also have the rights given by the GDPR and similar laws, including the right to complain to your data protection authority.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="en-s9">
+          <h2 id="en-s9">9. Security</h2>
+          <p>Data on your device stays in the app's private storage and out of automatic backup. Few staff can open support email, and that account uses two-step verification. Staff who handle personal data are trained at least once a year.</p>
+        </section>
+        <section aria-labelledby="en-s10">
+          <h2 id="en-s10">10. Contact</h2>
+          <p>Blockchen Co., Ltd., 107 Samseong-dong, Gangnam-gu, Seoul, Republic of Korea, is the controller of the personal data described here. Contact: <a href="mailto:support@blocksdk.com">support@blocksdk.com</a>.</p>
+        </section>
+        <section aria-labelledby="en-s11">
+          <h2 id="en-s11">11. Changes to this policy</h2>
+          <p>We post changes on this page 7 days before they take effect, or 30 days before if they are less favorable to you.</p>
+          <p>Effective date: November 5, 2026</p>
+        </section>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <nav class="doc-nav" aria-label="하단 문서 이동 / Footer links">
+        <a href="../../" data-keep-lang>← Blockchen</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
