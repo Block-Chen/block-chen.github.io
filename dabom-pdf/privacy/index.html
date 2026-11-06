@@ -442,11 +442,12 @@
       <article id="ko" lang="ko">
         <h1>개인정보처리방침 <span class="lang-tag">(한국어)</span></h1>
         <p class="meta">시행일: 2026년 11월 11일 · 게시일: 2026년 11월 4일</p>
+        <p class="notice">2026년 11월 6일 게시: iOS 앱에 적용되는 내용을 1 · 2 · 4 · 8절에 더했습니다. iOS 앱 출시일부터 iOS 앱 이용자에게 적용되고, Android 앱의 처리 내용은 바뀌지 않습니다.</p>
         <p class="notice">2026년 11월 11일부터 바뀌는 내용: 이용 통계 · 광고 성과 측정(Google Analytics for Firebase), 앱의 의견
           보내기 · 별점 · 구독 결제 확인(회사 서버)과 통신 위탁(Cloudflare)을 1 · 3 · 4 · 5 · 9절에 더했습니다. 그 전까지는 <a href="2026-11-04/#ko">이전 처리방침(2026년 11월 4일 시행)</a>이 적용됩니다.</p>
         <p>주식회사 블록첸(이하 “회사”)는 다봄 PDF 앱(이하 “앱”)에서 회원 가입을 받지 않고, 이용자의 문서 · 내 정보 · 서명을
-          서버로 받지 않습니다. 회사가 직접 받는 개인정보는 이용자가 보낸 문의 메일 · 의견 · 별점과 구독 확인에 필요한 결제 정보뿐이며, 광고 · 결제 처리 · 이용 통계는
-          Google이 맡습니다. 회사는 「개인정보 보호법」
+          서버로 받지 않습니다. 회사가 직접 받는 개인정보는 이용자가 보낸 문의 메일 · 의견 · 별점과 구독 확인에 필요한 결제 정보뿐이며, 광고 · 이용 통계는
+          Google이, 결제 처리는 Android 앱은 Google, iOS 앱은 Apple이 맡습니다. 회사는 「개인정보 보호법」
           등 관련 법령을 지키며 아래와 같이 개인정보를 처리합니다.</p>
         <!-- 목차: 각 절의 제목으로 이동 -->
         <nav class="toc" aria-label="목차">
@@ -494,13 +495,13 @@
                 </tr>
                 <tr>
                   <td>광고 제공</td>
-                  <td>광고 ID, IP 주소, 기기 정보(모델 · OS · 언어), 광고 노출 · 클릭 기록</td>
+                  <td>광고 ID(iOS는 이용자가 앱 추적을 허용한 경우의 IDFA), IP 주소, 기기 정보(모델 · OS · 언어), 광고 노출 · 클릭 기록</td>
                   <td>광고 표시, 광고 성과 측정, 부정 클릭 방지</td>
                   <td>앱에 들어 있는 Google AdMob SDK가 자동 수집</td>
                 </tr>
                 <tr>
                   <td>이용 통계 · 광고 성과 측정</td>
-                  <td>앱 인스턴스 ID, 광고 ID, IP 주소에서 얻은 대략적인 위치, 기기 정보(모델 · OS · 언어), 앱 이용 기록(실행 · 화면 · 연 문서의
+                  <td>앱 인스턴스 ID, 광고 ID(iOS는 이용자가 앱 추적을 허용한 경우의 IDFA), IP 주소에서 얻은 대략적인 위치, 기기 정보(모델 · OS · 언어), 앱 이용 기록(실행 · 화면 · 연 문서의
                     형식 · 쓴 도구 종류 · 결제 화면 보기 · 구독 시작과 구매 상품 · 금액), 광고 노출 · 광고 수익 금액</td>
                   <td>서비스 개선, 회사 광고 캠페인(Google Ads)의 성과 측정 · 최적화</td>
                   <td>앱에 들어 있는 Google Analytics for Firebase SDK가 자동 수집</td>
@@ -509,7 +510,7 @@
                   <td>프리미엄 구독</td>
                   <td>주문 번호, 구매 토큰, 상품 · 요금제, 결제 금액 · 통화 · 결제 국가, 구매 시각, 구독 상태, 앱 버전 · 언어, 설치 ID</td>
                   <td>구독 확인 · 복원, 매출 관리, 환불 · 문의 처리</td>
-                  <td>Google Play 결제에서 받고, 앱이 회사 서버로 보내 Google Play로 확인</td>
+                  <td>Google Play 결제에서 받고, 앱이 회사 서버로 보내 Google Play로 확인. iOS 앱은 Apple App Store 결제에서 받은 거래 ID · 원래 거래 ID · 상품 · 요금제 · 금액 · 통화 · 결제 국가 · 구매 시각을 앱이 회사 서버로 보냄</td>
                 </tr>
                 <tr>
                   <td>서비스 보안</td>
@@ -521,7 +522,7 @@
                   <td>서비스 개선</td>
                   <td>비정상 종료 · 성능 정보(집계)</td>
                   <td>오류 수정, 안정성 개선</td>
-                  <td>이용자가 기기에서 진단 정보 공유를 켠 경우 Google Play가 제공</td>
+                  <td>이용자가 기기에서 진단 정보 공유를 켠 경우 Google Play 또는 Apple이 제공</td>
                 </tr>
               </tbody>
             </table>
@@ -541,6 +542,9 @@
               이미지 내용은 기기 밖으로 나가지 않습니다. 다만 Google은 기능 제공 · 개선을 위해 사용 통계와 기기 정보(기기 모델, OS 버전, 앱
               패키지 이름 등)를 수집할 수 있습니다.</li>
             <li>새 문서 알림은 기기 안 파일 목록을 비교해 기기에서 만듭니다.</li>
+            <li>iOS 앱: 앱은 앱 안 폴더의 문서만 목록으로 보여 주며 다른 앱의 파일을 찾아보지 않습니다. 내 정보는 iOS 키체인에 저장합니다. 서명 그림은 앱 저장 공간에 두고 회사로 보내지
+              않으며, 이용자가 켠 iCloud · 컴퓨터 백업에 함께 담길 수 있습니다. 문서 스캔과 글자 인식은 iOS의 기기 안 기능(VisionKit · Vision)으로 처리해 문서 · 이미지 내용이
+              기기 밖으로 나가지 않습니다. 새 문서 알림은 없습니다.</li>
           </ul>
         </section>
         <section aria-labelledby="ko-s3">
@@ -597,7 +601,7 @@
         <section aria-labelledby="ko-s4">
           <h2 id="ko-s4">4. 제3자 제공과 국외 이전</h2>
           <p>앱에 들어 있는 Google 기능이 아래 정보를 Google LLC(미국)로 보내고, 앱과 회사 서버 사이의 통신은 Cloudflare, Inc.(미국)를
-            거칩니다. 회사는 법령에 따른 경우를 빼고 이 밖의 제3자에게 개인정보를 제공하지 않습니다.</p>
+            거칩니다. iOS 앱의 구독 결제는 Apple Inc.(미국)가 처리합니다. 회사는 법령에 따른 경우를 빼고 이 밖의 제3자에게 개인정보를 제공하지 않습니다.</p>
           <div class="table-wrap" role="region" aria-labelledby="ko-s4" tabindex="0">
             <table class="c5">
               <thead>
@@ -615,18 +619,25 @@
                   <td>광고 ID, IP 주소, 기기 정보, 광고 반응 기록</td>
                   <td>광고 표시 · 측정 · 부정 방지</td>
                   <td>앱을 쓰는 동안 암호화 통신으로 수시 전송</td>
-                  <td>광고 ID를 삭제하면 맞춤형이 아닌 광고가 나오고, 프리미엄을 구독하면 광고가 없어집니다</td>
+                  <td>광고 ID를 삭제하면 맞춤형이 아닌 광고가 나오고, 프리미엄을 구독하면 광고가 없어집니다. iOS는 앱 추적 투명성 창에서 거부하거나 설정 › 개인정보 보호 및 보안 › 추적에서 끌 수 있고, 거부하면 IDFA를 쓰지 않습니다</td>
                 </tr>
                 <tr>
                   <td>Google Analytics for Firebase</td>
                   <td>앱 인스턴스 ID, 광고 ID, IP 주소(일부를 가린 뒤 대략적인 위치만 얻음), 기기 정보, 앱 이용 기록, 광고 수익 금액</td>
                   <td>이용 통계, 광고 성과 측정 · 최적화(Google Ads)</td>
                   <td>앱을 쓰는 동안 암호화 통신으로 수시 전송</td>
-                  <td>광고 ID를 삭제하면 광고 ID 없이 보냅니다. 유럽 경제 지역 · 영국 · 스위스 이용자는 동의 폼(설정 › 개인정보 옵션)에서 거부할 수
+                  <td>광고 ID를 삭제하면 광고 ID 없이 보냅니다. iOS는 앱 추적 투명성 창에서 거부하거나 설정 › 개인정보 보호 및 보안 › 추적에서 끌 수 있고, 거부하면 IDFA를 쓰지 않습니다. 유럽 경제 지역 · 영국 · 스위스 이용자는 동의 폼(설정 › 개인정보 옵션)에서 거부할 수
                     있고, 거부하면 식별자 없이 집계에만 쓰입니다</td>
                 </tr>
                 <tr>
                   <td>Google Play 결제</td>
+                  <td>구매 · 구독 정보</td>
+                  <td>결제 처리 · 구독 관리</td>
+                  <td>구독할 때</td>
+                  <td>구독하지 않으면 보내지 않음</td>
+                </tr>
+                <tr>
+                  <td>Apple App Store 결제(iOS 앱)</td>
                   <td>구매 · 구독 정보</td>
                   <td>결제 처리 · 구독 관리</td>
                   <td>구독할 때</td>
@@ -653,6 +664,8 @@
             연락 방법은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>을 따릅니다.</p>
           <p>Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA. 보유 기간과 연락 방법은
             <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare 개인정보처리방침</a>을 따릅니다.</p>
+          <p>Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA. 보유 기간과 연락 방법은
+            <a href="https://www.apple.com/legal/privacy/">Apple 개인정보처리방침</a>을 따릅니다.</p>
         </section>
         <section aria-labelledby="ko-s5">
           <h2 id="ko-s5">5. 처리 위탁</h2>
@@ -680,6 +693,7 @@
             <li>기기 안 정보는 앱에서 직접 지울 수 있습니다(설정 › 내 정보, 서명 목록, 최근 기록). 앱을 삭제하면 모두 삭제됩니다.</li>
             <li>광고 ID는 기기 설정에서 삭제하거나 재설정합니다(기기 설정의 ‘광고’ 메뉴, 예: 설정 › 개인정보 보호 › 광고 또는 설정 › Google
               › 광고 — 기기마다 위치가 다를 수 있음).</li>
+            <li>iOS는 설정 › 개인정보 보호 및 보안 › 추적에서 앱 추적을 끌 수 있습니다.</li>
           </ul>
         </section>
         <section aria-labelledby="ko-s9">
@@ -716,6 +730,7 @@
       <article id="en" lang="en">
         <h1>Privacy Policy <span class="lang-tag">(English)</span></h1>
         <p class="meta">Effective date: November 11, 2026 · Posted: November 4, 2026</p>
+        <p class="notice">Posted November 6, 2026: we added what applies to the iOS app in sections 2, 3, 4 and 5. It applies to iOS users from the iOS app’s release, and nothing changes for the Android app.</p>
         <p class="notice">What changes on November 11, 2026: we added analytics and ad measurement with Google Analytics
           for Firebase, in-app feedback, ratings and subscription checks on our server, and Cloudflare as our network
           provider (sections 2, 4, 5, 6 and 8). Until then, the <a href="2026-11-04/#en">previous version (effective
@@ -723,7 +738,8 @@
         <p>Dabom PDF works without an account and keeps your documents on your device. The only
           personal data Blockchen Co., Ltd. (“we”) receives directly is what you send us (support
           emails, in-app feedback and ratings) and the purchase details we need to confirm your
-          subscription; ads, payment processing and app analytics are handled by Google.</p>
+          subscription. Ads and app analytics are handled by Google, and payments by Google on
+          Android and by Apple on iOS.</p>
         <!-- Table of contents -->
         <nav class="toc" aria-label="Contents">
           <p class="toc-title">Contents</p>
@@ -775,14 +791,14 @@
                 </tr>
                 <tr>
                   <td>Advertising (Google AdMob)</td>
-                  <td>Advertising ID, IP address, device information, ad views and clicks</td>
+                  <td>Advertising ID (on iOS, the IDFA if you allow tracking), IP address, device information, ad views and clicks</td>
                   <td>Show and measure ads, prevent ad fraud</td>
                   <td>Consent for personalized ads; legitimate interests for non-personalized
                     ads</td>
                 </tr>
                 <tr>
                   <td>Analytics and ad measurement (Google Analytics for Firebase)</td>
-                  <td>App instance ID, Advertising ID, approximate location derived from your IP
+                  <td>App instance ID, Advertising ID (on iOS, the IDFA if you allow tracking), approximate location derived from your IP
                     address, device information, app usage events (launches, screens, the type of
                     document opened, the tool used, paywall views, subscription starts and
                     purchases), ad impressions and ad revenue</td>
@@ -798,6 +814,13 @@
                   <td>Contract; legal obligation for sales records</td>
                 </tr>
                 <tr>
+                  <td>Premium subscription (Apple App Store, iOS)</td>
+                  <td>Transaction ID, original transaction ID, product and plan, price, currency and billing
+                    country, purchase time, subscription status, app version, app language and install ID</td>
+                  <td>Verify and restore your subscription, keep sales records, handle refunds</td>
+                  <td>Contract; legal obligation for sales records</td>
+                </tr>
+                <tr>
                   <td>Security</td>
                   <td>IP address and time of requests to our server</td>
                   <td>Prevent spam and abuse</td>
@@ -805,7 +828,7 @@
                 </tr>
                 <tr>
                   <td>App stability</td>
-                  <td>Aggregated crash and performance data from Google Play, if you share
+                  <td>Aggregated crash and performance data from Google Play or Apple, if you share
                     usage and diagnostics on your device</td>
                   <td>Fix crashes, improve stability</td>
                   <td>Legitimate interests</td>
@@ -837,6 +860,12 @@
               information (such as device model, OS version and app package name) to provide
               and improve these features.</li>
             <li>New document alerts are created on your device by comparing the files on it.</li>
+            <li>iOS app: the app lists only the documents in its own folder and does not browse
+              other apps’ files. Saved form details are kept in the iOS Keychain. Signature images
+              stay in the app’s storage, are never sent to us, and may be included in iCloud or
+              computer backups you turn on. Document scanning and text recognition run on your
+              device through iOS (VisionKit and Vision), so document and image content does not
+              leave your device. There are no new document alerts.</li>
           </ul>
         </section>
         <section aria-labelledby="en-s4">
@@ -849,6 +878,8 @@
             clauses. See the <a href="https://policies.google.com/privacy">Google Privacy
             Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how
             Google uses information from apps that use its services</a>.</p>
+          <p>On iOS, purchases are handled by Apple Inc. (One Apple Park Way, Cupertino, CA 95014,
+            USA). See the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
           <p>Requests from the app to our server (feedback, ratings and subscription checks) pass
             through Cloudflare, Inc. (101 Townsend St, San Francisco, CA 94107, USA), which delivers
             and protects this traffic on our behalf. See the
@@ -862,6 +893,9 @@
               device settings, for example Settings › Privacy › Ads or Settings › Google ›
               Ads; the location varies by device). Ads then stop being personalized, and
               analytics are sent without the advertising ID.</li>
+            <li>On iOS, you can refuse tracking in the App Tracking Transparency prompt or turn it
+              off in Settings › Privacy &amp; Security › Tracking. If you refuse, the IDFA is not
+              used.</li>
             <li>If you are in the EEA, the UK or Switzerland, we ask for your consent before
               showing personalized ads or using analytics with identifiers, and you can change
               your choice at any time in Settings › Privacy options.</li>
