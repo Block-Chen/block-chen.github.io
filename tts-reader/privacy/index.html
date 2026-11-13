@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TTS 리더 개인정보 처리방침 · TTS Reader Privacy Policy</title>
+  <meta name="description" content="TTS 리더(또랑) 개인정보 처리방침 · Privacy Policy of TTS Reader (Ttorang)">
+  <meta name="robots" content="index,follow">
+  <meta name="color-scheme" content="light dark">
+  <!-- 언어 선택: 주소의 #ko / #en 또는 ?lang= 값을 먼저 보고, 없으면 브라우저 언어를 따른다. 스크립트가 없으면 두 언어가 모두 보인다. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      // 주소의 해시에서 언어를 읽는다: #ko, #en, 또는 #ko-s3 같은 절 링크
+      function fromHash() {
+        var m = /^#(ko|en)(?:-|$)/.exec(location.hash);
+        return m ? m[1] : null;
+      }
+
+      // 주소의 ?lang=ko 또는 ?lang=en
+      function fromQuery() {
+        var m = /[?&]lang=(ko|en)(?:&|$)/.exec(location.search);
+        return m ? m[1] : null;
+      }
+
+      // 브라우저 언어가 ko, ko-KR 처럼 ko로 시작하면 한국어, 아니면 영어
+      function fromBrowser() {
+        var l = navigator.language || (navigator.languages && navigator.languages[0]) || '';
+        return /^ko(?:-|$)/i.test(l) ? 'ko' : 'en';
+      }
+
+      // html 요소에 현재 언어를 적용한다. CSS가 data-lang을 보고 반대쪽 본문을 숨긴다.
+      function apply(lang) {
+        root.setAttribute('data-lang', lang);
+        root.lang = lang;
+      }
+
+      // 언어 버튼 표시를 맞추고, 다른 문서로 가는 링크에도 현재 언어를 붙인다.
+      function sync() {
+        var lang = root.getAttribute('data-lang');
+        var buttons = document.querySelectorAll('.lang-switch a[data-lang]');
+        var links = document.querySelectorAll('a[data-keep-lang]');
+        var i;
+        for (i = 0; i < buttons.length; i++) {
+          if (buttons[i].getAttribute('data-lang') === lang) {
+            buttons[i].setAttribute('aria-current', 'true');
+          } else {
+            buttons[i].removeAttribute('aria-current');
+          }
+        }
+        for (i = 0; i < links.length; i++) {
+          links[i].setAttribute('href', links[i].getAttribute('href').split('#')[0] + '#' + lang);
+        }
+      }
+
+      // 버튼을 눌렀을 때: 새로고침 없이 바꾸고 주소의 해시도 함께 바꾼다.
+      function choose(lang) {
+        apply(lang);
+        sync();
+        try {
+          history.replaceState(null, '', '#' + lang);
+        } catch (e) {
+          location.hash = lang;
+        }
+      }
+
+      // 먼저 해시, 다음 ?lang=, 마지막으로 브라우저 언어 순서로 정한다.
+      apply(fromHash() || fromQuery() || fromBrowser());
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var buttons = document.querySelectorAll('.lang-switch a[data-lang]');
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            choose(this.getAttribute('data-lang'));
+          });
+        }
+        sync();
+      });
+
+      // 주소창에서 해시를 바꿨거나 다른 언어의 절 링크로 들어온 경우
+      window.addEventListener('hashchange', function () {
+        var lang = fromHash();
+        if (lang && lang !== root.getAttribute('data-lang')) {
+          apply(lang);
+          sync();
+          var target = document.getElementById(location.hash.slice(1));
+          if (target) {
+            target.scrollIntoView();
+          }
+        }
+      });
+    })();
+  </script>
+  <style>
+    /* 색상은 변수로 두고, 어두운 화면 설정이면 아래 media 블록에서 덮어쓴다 */
+    :root {
+      color-scheme: light dark;
+      --bg: #fbfaf8;
+      --surface: #f1efea;
+      --text: #1f1f23;
+      --muted: #62626b;
+      --border: #dad6cf;
+      --accent: #C8371F;
+      --on-accent: #ffffff;
+      --link: #C8371F;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #151517;
+        --surface: #212125;
+        --text: #e9e7e3;
+        --muted: #a7a49e;
+        --border: #3a3a40;
+        --link: #FF8D72;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-wrap: break-word;
+    }
+
+    /* 본문 폭 720px + 좌우 여백 16px */
+    .page {
+      max-width: 752px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.15em;
+    }
+
+    a:focus-visible,
+    .table-wrap:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
+
+    /* 위쪽 줄: 이름표와 언어 전환 */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 0 12px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      margin-left: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .lang-switch a {
+      padding: 8px 16px;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .lang-switch a + a {
+      border-left: 1px solid var(--border);
+    }
+
+    /* 바깥 상자가 넘치는 부분을 잘라 내므로 포커스 표시는 안쪽에 그린다 */
+    .lang-switch a:focus-visible {
+      outline-offset: -2px;
+    }
+
+    /* 지금 보는 언어의 버튼에만 포인트 색을 쓴다 */
+    html[data-lang="ko"] .lang-switch a[data-lang="ko"],
+    html[data-lang="en"] .lang-switch a[data-lang="en"] {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+
+    /* 선택되지 않은 언어는 숨긴다. 자바스크립트가 없으면 data-lang이 없어 둘 다 보이고 한국어가 먼저다 */
+    html[data-lang="ko"] article[lang="en"],
+    html[data-lang="ko"] .t[lang="en"],
+    html[data-lang="en"] article[lang="ko"],
+    html[data-lang="en"] .t[lang="ko"] {
+      display: none;
+    }
+
+    html:not([data-lang]) .t[lang="ko"] + .t[lang="en"]::before {
+      content: " / ";
+    }
+
+    /* 다른 쪽으로 가는 링크 */
+    .doc-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      padding: 0 0 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    /* 본문 */
+    article {
+      padding: 24px 0 8px;
+      scroll-margin-top: 7rem;
+    }
+
+    article[lang="ko"] {
+      word-break: keep-all;
+    }
+
+    h1 {
+      margin: 0 0 0.3em;
+      font-size: 1.65rem;
+      line-height: 1.3;
+    }
+
+    .lang-tag {
+      margin-left: 0.25em;
+      color: var(--muted);
+      font-size: 0.6em;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    h2 {
+      margin: 2.2em 0 0.6em;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      scroll-margin-top: 1rem;
+    }
+
+    p,
+    ul,
+    ol {
+      margin: 0 0 1em;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.5em;
+    }
+
+    li + li {
+      margin-top: 0.4em;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* 변경 안내: 시행 예정일 · 이전 판 링크 */
+    .notice {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: var(--surface);
+      font-size: 0.92rem;
+    }
+
+    /* 목차 */
+    .toc {
+      margin: 1.5em 0 0.5em;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .toc-title {
+      margin: 0 0 0.4em;
+      font-weight: 700;
+    }
+
+    .toc ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc li + li {
+      margin-top: 0.15em;
+    }
+
+    @media (min-width: 600px) {
+      .toc ul {
+        column-count: 2;
+        column-gap: 28px;
+      }
+
+      .toc li {
+        break-inside: avoid;
+      }
+    }
+
+    /* 표: 좁은 화면에서는 표 상자 안에서만 가로로 스크롤한다 */
+    .table-wrap {
+      margin: 0 0 1.25em;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    table.c2 {
+      min-width: 18rem;
+    }
+
+    table.c3 {
+      min-width: 28rem;
+    }
+
+    table.c4 {
+      min-width: 36rem;
+    }
+
+    table.c5 {
+      min-width: 42rem;
+    }
+
+    th,
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface);
+      font-weight: 700;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    /* 첫 화면(회사 소개) */
+    .app {
+      margin: 1.5em 0;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .app h2 {
+      margin-top: 0;
+    }
+
+    .alt-name {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .app p {
+      margin-bottom: 0.6em;
+    }
+
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-bottom: 0;
+    }
+
+    .site-footer {
+      margin-top: 40px;
+      padding: 16px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .site-footer .doc-nav {
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    @media print {
+      .site-header,
+      .doc-nav,
+      .toc,
+      .site-footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <span class="brand">Blockchen</span>
+      <nav class="lang-switch" aria-label="언어 선택 / Language">
+        <a href="#ko" data-lang="ko" lang="ko">한국어</a>
+        <a href="#en" data-lang="en" lang="en">English</a>
+      </nav>
+    </header>
+    <nav class="doc-nav" aria-label="문서 이동 / Site links">
+      <a href="../../" data-keep-lang>← Blockchen</a>
+    </nav>
+    <main>
+      <!-- 한국어 본문 -->
+      <article id="ko" lang="ko">
+        <h1>TTS 리더 개인정보처리방침 <span class="lang-tag">(한국어)</span></h1>
+        <p class="meta">시행일: 2026년 11월 13일 · 게시일: 2026년 11월 13일</p>
+        <p>주식회사 블록첸(이하 “회사”)은 TTS 리더 앱(앱 안 이름 “또랑”, 이하 “앱”)에서 회원 가입을 받지 않고, 이용자가 앱에 넣은 문서 · 사진 · 녹음을 서버로 받지 않습니다. 앱을 위한 회사 서버도 없고, 앱에는 광고와 사용 통계가 없습니다. 회사가 직접 받는 개인정보는 이용자가 보낸 문의 메일뿐입니다. 회사는 「개인정보 보호법」 등 관련 법령을 지키며 아래와 같이 개인정보를 처리합니다.</p>
+        <nav class="toc" aria-label="목차">
+          <p class="toc-title">목차</p>
+          <ul>
+            <li><a href="#ko-s1">1. 처리하는 개인정보와 목적</a></li>
+            <li><a href="#ko-s2">2. 기기 안에서만 처리하는 정보</a></li>
+            <li><a href="#ko-s3">3. 이용자가 요청할 때 하는 전송</a></li>
+            <li><a href="#ko-s4">4. 보유 · 이용 기간</a></li>
+            <li><a href="#ko-s5">5. 제3자 제공과 국외 이전</a></li>
+            <li><a href="#ko-s6">6. 처리 위탁</a></li>
+            <li><a href="#ko-s7">7. 파기 절차와 방법</a></li>
+            <li><a href="#ko-s8">8. 만 14세 미만 아동</a></li>
+            <li><a href="#ko-s9">9. 이용자의 권리와 행사 방법</a></li>
+            <li><a href="#ko-s10">10. 안전성 확보 조치</a></li>
+            <li><a href="#ko-s11">11. 개인정보 보호책임자</a></li>
+            <li><a href="#ko-s12">12. 권익침해 구제 방법</a></li>
+            <li><a href="#ko-s13">13. 처리방침의 변경</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="ko-s1">
+          <h2 id="ko-s1">1. 처리하는 개인정보와 목적</h2>
+          <div class="table-wrap" role="region" aria-labelledby="ko-s1" tabindex="0">
+            <table class="c4">
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">항목</th>
+                  <th scope="col">목적</th>
+                  <th scope="col">수집 방법</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>문의 메일</td>
+                  <td>이메일 주소, 문의 내용(이용자가 적은 기기 정보 포함)</td>
+                  <td>문의 답변, 오류 확인</td>
+                  <td>이용자가 메일로 보냄</td>
+                </tr>
+                <tr>
+                  <td>AI 음성 문제 신고</td>
+                  <td>이메일 주소, 신고 내용</td>
+                  <td>내 목소리 기능의 오용 · 오류 신고 처리</td>
+                  <td>이용자가 메일로 보냄</td>
+                </tr>
+                <tr>
+                  <td>서비스 개선</td>
+                  <td>비정상 종료 · 성능 정보(집계)</td>
+                  <td>오류 수정, 안정성 개선</td>
+                  <td>이용자가 기기에서 진단 정보 공유를 켠 경우 Google Play가 제공</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>앱에는 계정과 광고가 없고, 회사가 수집하는 사용 통계도 없습니다. 회사는 이용자가 앱에 넣은 문서, 사진, 웹 글, 녹음, 목소리 정보를 받지 않습니다. 글자 인식, 번역, AI 요약에 쓰는 Google ML Kit이 보내는 정보는 5번 항목에 적었습니다. 앱은 현재 유료 상품을 팔지 않으며, 판매를 시작하기 전에 이 처리방침을 고칩니다.</p>
+        </section>
+        <section aria-labelledby="ko-s2">
+          <h2 id="ko-s2">2. 기기 안에서만 처리하는 정보</h2>
+          <p>아래 정보는 앱 전용 저장 공간에만 저장되며 회사로 전송되지 않습니다.</p>
+          <ul>
+            <li>문서와 글: 이용자가 넣은 파일(HWP · HWPX · PDF · DOCX · PPTX · ePub · TXT), 붙여 넣거나 다른 앱에서 공유한 글, 사진 · 스캔에서 읽은 글, 웹 링크에서 가져온 본문, 요약 · 번역 결과</li>
+            <li>읽기 기록: 듣던 위치, 북마크와 메모, 듣기 기록, 읽는 법 사전, 설정</li>
+            <li>음성 파일: 앱이 만든 음성 파일(M4A). 이용자가 저장을 고르면 기기의 Music/Ttorang 폴더에도 저장됩니다.</li>
+            <li>내 목소리: 녹음은 목소리 특징을 계산한 직후 지우고, 목소리 특징 값과 동의 문장을 읽은 날짜만 남깁니다. 목소리는 본인이나 동의한 가족의 것만 만들 수 있으며, 백업에도 들어가지 않습니다.</li>
+          </ul>
+          <p>소리 내어 읽기는 휴대폰에 설치된 음성 합성(TTS) 엔진에 읽을 글을 넘겨서 하며, 앱은 인터넷이 필요 없는 기기 안 목소리만 씁니다. 엔진의 처리는 그 엔진 제공자의 정책을 따릅니다. 핵심 문장 요약은 앱 안에서 계산하고, AI 요약은 Gemini Nano를 지원하는 휴대폰에서 기기의 AICore가 처리합니다.</p>
+          <p>앱은 저장 공간, 연락처, 위치 권한을 요청하지 않습니다. 파일과 사진은 기기의 선택 화면이나 카메라에서 이용자가 고른 것만 읽습니다. 마이크 권한은 내 목소리를 만들 때만 묻고, 알림 권한은 읽기 조작과 문서 처리 완료 알림에 씁니다. 클립보드는 이용자가 붙여넣기나 ‘복사한 글 듣기’를 누를 때만 읽습니다.</p>
+        </section>
+        <section aria-labelledby="ko-s3">
+          <h2 id="ko-s3">3. 이용자가 요청할 때 하는 전송</h2>
+          <ul>
+            <li>웹 링크: 이용자가 넣은 주소의 웹사이트에 기기가 직접 접속해 페이지를 받습니다. 그 사이트는 IP 주소 같은 일반적인 접속 정보를 받으며, 이후 처리는 그 사이트의 정책을 따릅니다. 회사 서버는 거치지 않습니다.</li>
+            <li>모델과 엔진 내려받기: 글자 인식 · 번역 모델, 번역 · 내 목소리 엔진, 내 목소리 모델, AI 요약 모델은 처음 쓸 때 Google Play 또는 Google에서 받습니다. 이때 일반적인 접속 정보가 Google로 갑니다.</li>
+            <li>공유와 저장: 음성 파일 공유, 백업 파일(.ttorang, 기기의 Download/Ttorang 폴더)은 이용자가 고른 앱이나 위치로 넘어갑니다. 백업 파일에는 문서와 기록이 들어 있으니 안전하게 보관해 주세요.</li>
+            <li>문의 · 신고 메일: 이용자의 메일 앱에서 보냅니다.</li>
+            <li>링크: 이 처리방침 등 외부 링크는 이용자의 브라우저에서 열립니다.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s4">
+          <h2 id="ko-s4">4. 보유 · 이용 기간</h2>
+          <div class="table-wrap" role="region" aria-labelledby="ko-s4" tabindex="0">
+            <table class="c3">
+              <thead>
+                <tr>
+                  <th scope="col">정보</th>
+                  <th scope="col">기간</th>
+                  <th scope="col">근거</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>문의 · 신고 메일</td>
+                  <td>답변을 끝낸 뒤 3년</td>
+                  <td>「전자상거래 등에서의 소비자보호에 관한 법률」 소비자 불만 · 분쟁처리 기록</td>
+                </tr>
+                <tr>
+                  <td>기기 안 정보</td>
+                  <td>이용자가 지우거나 앱을 삭제할 때까지</td>
+                  <td>회사가 받지 않음</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="ko-s5">
+          <h2 id="ko-s5">5. 제3자 제공과 국외 이전</h2>
+          <p>앱에 들어 있는 Google ML Kit 기능이 아래 정보를 Google LLC(미국)로 보냅니다. 회사는 법령에 따른 경우를 빼고 이 밖의 제3자에게 개인정보를 제공하지 않습니다.</p>
+          <div class="table-wrap" role="region" aria-labelledby="ko-s5" tabindex="0">
+            <table class="c5">
+              <thead>
+                <tr>
+                  <th scope="col">기능</th>
+                  <th scope="col">이전 항목</th>
+                  <th scope="col">목적</th>
+                  <th scope="col">시기 · 방법</th>
+                  <th scope="col">거부 방법과 그 결과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>사진 · 스캔 글자 인식, 번역해서 듣기, AI 요약(Google ML Kit)</td>
+                  <td>기기 정보(제조사, 모델, OS 버전 등), 앱 정보(패키지 이름, 버전), 기기 식별자와 설치별 식별자, 성능 지표, 기능 설정과 버전, 입출력 크기, 이벤트와 오류 코드. 사진, 문서, 읽은 글자, 번역 · 요약할 글은 기기 안에서 처리하며 이 항목에 들어가지 않습니다.</td>
+                  <td>Google의 진단과 사용 통계</td>
+                  <td>해당 기능을 쓸 때 암호화 통신으로 전송</td>
+                  <td>이 기능들을 쓰지 않으면 전송되지 않으며, 파일 · 웹 링크 · 붙여넣기로 넣은 글은 그대로 들을 수 있습니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="ko-s6">
+          <h2 id="ko-s6">6. 처리 위탁</h2>
+          <p>회사는 아래 업무를 맡깁니다. 이 밖에 개인정보 처리 업무를 맡기지 않습니다.</p>
+          <ul>
+            <li>주식회사 다우기술(다우오피스): 문의 메일 수신 · 보관</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s7">
+          <h2 id="ko-s7">7. 파기 절차와 방법</h2>
+          <p>보유 기간이 끝나거나 목적을 이루면 지체 없이 파기합니다. 전자 파일은 복구할 수 없게 삭제하고, 다른 법령으로 보존해야 하는 정보는 따로 보관합니다.</p>
+        </section>
+        <section aria-labelledby="ko-s8">
+          <h2 id="ko-s8">8. 만 14세 미만 아동</h2>
+          <p>앱은 만 14세 미만 아동을 대상으로 하지 않으며, 회사는 아동의 개인정보를 알면서 수집하지 않습니다. 법정대리인이 알려 주면 바로 삭제합니다.</p>
+        </section>
+        <section aria-labelledby="ko-s9">
+          <h2 id="ko-s9">9. 이용자의 권리와 행사 방법</h2>
+          <p>회사가 가진 개인정보의 열람 · 정정 · 삭제 · 처리정지를 <a href="mailto:support@blocksdk.com">support@blocksdk.com</a>로 요구할 수 있으며, 회사는 10일 안에 조치합니다.</p>
+          <p>기기 안 정보는 앱에서 직접 지울 수 있고, 앱을 삭제하면 모두 삭제됩니다. 이용자가 따로 저장한 백업 파일과 음성 파일은 직접 지워야 합니다.</p>
+        </section>
+        <section aria-labelledby="ko-s10">
+          <h2 id="ko-s10">10. 안전성 확보 조치</h2>
+          <ul>
+            <li>기기 안 정보를 앱 전용 저장 공간에 보관하고 기기 자동 백업에서 제외</li>
+            <li>내 목소리 녹음은 목소리 특징을 계산한 직후 삭제하고, 목소리는 백업에서 제외</li>
+            <li>문의 메일에 접근하는 직원을 최소화하고, 메일 계정에 2단계 인증 적용</li>
+            <li>개인정보를 다루는 직원에게 연 1회 이상 보호 교육</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s11">
+          <h2 id="ko-s11">11. 개인정보 보호책임자</h2>
+          <p>성명 송승범, 직책 이사, 이메일 <a href="mailto:support@blocksdk.com">support@blocksdk.com</a></p>
+        </section>
+        <section aria-labelledby="ko-s12">
+          <h2 id="ko-s12">12. 권익침해 구제 방법</h2>
+          <ul>
+            <li>개인정보분쟁조정위원회: 1833-6972, www.kopico.go.kr</li>
+            <li>개인정보침해신고센터: (국번 없이) 118, privacy.kisa.or.kr</li>
+            <li>대검찰청: (국번 없이) 1301, www.spo.go.kr</li>
+            <li>경찰청: (국번 없이) 182, ecrm.police.go.kr</li>
+          </ul>
+        </section>
+        <section aria-labelledby="ko-s13">
+          <h2 id="ko-s13">13. 처리방침의 변경</h2>
+          <p>이 처리방침을 바꾸면 시행 7일 전(이용자에게 불리한 변경은 30일 전)에 이 페이지에 알립니다.</p>
+          <p>시행일: 2026년 11월 13일</p>
+        </section>
+      </article>
+
+      <!-- English -->
+      <article id="en" lang="en">
+        <h1>TTS Reader Privacy Policy <span class="lang-tag">(English)</span></h1>
+        <p class="meta">Effective date: November 13, 2026 · Posted: November 13, 2026</p>
+        <p>Blockchen Co., Ltd. (“we”) makes the TTS Reader app (called “Ttorang” inside the app; the “app”). The app has no sign-up, and we do not receive the documents, photos or recordings you add to it. There is no server of ours behind the app, and the app has no ads and no usage analytics. The only personal data we receive directly is email you send us. We handle personal data as described below, in line with Korea’s Personal Information Protection Act and other applicable laws.</p>
+        <nav class="toc" aria-label="Contents">
+          <p class="toc-title">Contents</p>
+          <ul>
+            <li><a href="#en-s1">1. Data we handle and why</a></li>
+            <li><a href="#en-s2">2. Data that stays on your device</a></li>
+            <li><a href="#en-s3">3. What is sent when you ask</a></li>
+            <li><a href="#en-s4">4. How long we keep data</a></li>
+            <li><a href="#en-s5">5. Sharing and transfers abroad</a></li>
+            <li><a href="#en-s6">6. Service providers</a></li>
+            <li><a href="#en-s7">7. Children</a></li>
+            <li><a href="#en-s8">8. Your rights</a></li>
+            <li><a href="#en-s9">9. Security</a></li>
+            <li><a href="#en-s10">10. Contact</a></li>
+            <li><a href="#en-s11">11. Changes to this policy</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="en-s1">
+          <h2 id="en-s1">1. Data we handle and why</h2>
+          <div class="table-wrap" role="region" aria-labelledby="en-s1" tabindex="0">
+            <table class="c4">
+              <thead>
+                <tr>
+                  <th scope="col">What</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Why</th>
+                  <th scope="col">How we get it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Support email</td>
+                  <td>Your email address and message (including any device details you include)</td>
+                  <td>To answer you and fix problems</td>
+                  <td>You email us</td>
+                </tr>
+                <tr>
+                  <td>AI voice reports</td>
+                  <td>Your email address and report</td>
+                  <td>To handle reports of misuse or errors in the My voice feature</td>
+                  <td>You email us</td>
+                </tr>
+                <tr>
+                  <td>Service improvement</td>
+                  <td>Crash and performance data (aggregated)</td>
+                  <td>To fix bugs and improve stability</td>
+                  <td>Provided by Google Play if you turned on sharing of diagnostics on your device</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The app has no accounts and no ads, and we collect no usage analytics. We do not receive the documents, photos, web articles, recordings or voice data you put into the app. What Google ML Kit sends when you use text recognition, translation or AI summaries is listed in section 5. The app sells nothing at the moment; we will update this policy before any paid feature goes on sale.</p>
+        </section>
+        <section aria-labelledby="en-s2">
+          <h2 id="en-s2">2. Data that stays on your device</h2>
+          <p>The following is stored only in the app’s private storage and is never sent to us.</p>
+          <ul>
+            <li>Documents and text: files you add (HWP, HWPX, PDF, DOCX, PPTX, ePub, TXT), text you paste or share from other apps, text read from photos and scans, articles fetched from web links, and summaries and translations</li>
+            <li>Reading data: where you stopped, bookmarks and notes, listening history, the pronunciation dictionary and your settings</li>
+            <li>Audio files: M4A files the app makes; if you choose to save one, it also goes to your device’s Music/Ttorang folder</li>
+            <li>My voice: each recording is deleted right after the voice is measured; only the voice measurements and the date the consent sentence was read are kept. A voice can only be made of yourself or a family member who agrees, and voices are not included in backups.</li>
+          </ul>
+          <p>To read aloud, the app passes the text to the text-to-speech engine installed on your phone and uses only voices that work without the internet; the engine’s processing follows its provider’s policy. Key-sentence summaries are computed in the app; AI summaries are made by your phone’s AICore on phones that support Gemini Nano.</p>
+          <p>The app does not ask for storage, contacts or location permissions. It reads only the files and photos you pick in the device’s picker or take with the camera. It asks for the microphone only when you make a voice, and uses notifications for playback controls and “ready” alerts. It reads the clipboard only when you tap paste or “Listen to copied text”.</p>
+        </section>
+        <section aria-labelledby="en-s3">
+          <h2 id="en-s3">3. What is sent when you ask</h2>
+          <ul>
+            <li>Web links: your device connects directly to the website at the address you enter and downloads the page. That site receives ordinary connection data such as your IP address and handles it under its own policy. Nothing passes through a server of ours.</li>
+            <li>Model and engine downloads: text recognition and translation models, the translation and My voice engines, the My voice models and the AI summary model are downloaded from Google Play or Google the first time you use them, which sends ordinary connection data to Google.</li>
+            <li>Sharing and saving: audio you share and backup files (.ttorang, in your device’s Download/Ttorang folder) go to the app or place you choose. Backups contain your documents and history, so keep them safe.</li>
+            <li>Support and report email is sent from your own mail app.</li>
+            <li>Links such as this policy open in your browser.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="en-s4">
+          <h2 id="en-s4">4. How long we keep data</h2>
+          <div class="table-wrap" role="region" aria-labelledby="en-s4" tabindex="0">
+            <table class="c3">
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Period</th>
+                  <th scope="col">Basis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Support and report email</td>
+                  <td>3 years after we finish answering</td>
+                  <td>Korea’s Act on Consumer Protection in Electronic Commerce (records of complaints and disputes)</td>
+                </tr>
+                <tr>
+                  <td>Data on your device</td>
+                  <td>Until you delete it or uninstall the app</td>
+                  <td>We never receive it</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="en-s5">
+          <h2 id="en-s5">5. Sharing and transfers abroad</h2>
+          <p>Google ML Kit, which is built into the app, sends the data below to Google LLC (United States). We do not share personal data with anyone else except where the law requires it.</p>
+          <div class="table-wrap" role="region" aria-labelledby="en-s5" tabindex="0">
+            <table class="c5">
+              <thead>
+                <tr>
+                  <th scope="col">Feature</th>
+                  <th scope="col">Data sent</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">When and how</th>
+                  <th scope="col">How to refuse, and what happens</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Text recognition in photos and scans, translate and listen, AI summaries (Google ML Kit)</td>
+                  <td>Device information (maker, model, OS version and so on), app information (package name, version), device and per-install identifiers, performance metrics, feature settings and versions, input and output sizes, events and error codes. Your photos, documents, recognized text and the text to translate or summarize are processed on the device and are not part of this.</td>
+                  <td>Google’s diagnostics and usage statistics</td>
+                  <td>Sent over an encrypted connection when you use the feature</td>
+                  <td>If you don’t use these features nothing is sent, and you can still listen to text added from files, web links or pasting.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section aria-labelledby="en-s6">
+          <h2 id="en-s6">6. Service providers</h2>
+          <p>Daou Technology Inc. (Daou Office) receives and stores our support email. We use no other processors of personal data.</p>
+        </section>
+        <section aria-labelledby="en-s7">
+          <h2 id="en-s7">7. Children</h2>
+          <p>The app is not directed at children under 14, and we do not knowingly collect their personal data. If a parent or guardian tells us, we delete it right away.</p>
+        </section>
+        <section aria-labelledby="en-s8">
+          <h2 id="en-s8">8. Your rights</h2>
+          <p>You can ask to see, correct, delete or stop the processing of personal data we hold by writing to <a href="mailto:support@blocksdk.com">support@blocksdk.com</a>; we act within 10 days.</p>
+          <p>Data on your device can be deleted in the app, and uninstalling the app deletes all of it. Backup and audio files you saved elsewhere must be deleted by you.</p>
+        </section>
+        <section aria-labelledby="en-s9">
+          <h2 id="en-s9">9. Security</h2>
+          <ul>
+            <li>Data on the device is kept in the app’s private storage and excluded from automatic device backups</li>
+            <li>My voice recordings are deleted right after the voice is measured, and voices are left out of backups</li>
+            <li>Few staff can access support email, and the mail account uses two-step verification</li>
+            <li>Staff who handle personal data receive privacy training at least once a year</li>
+          </ul>
+        </section>
+        <section aria-labelledby="en-s10">
+          <h2 id="en-s10">10. Contact</h2>
+          <p>Blockchen Co., Ltd., 107 Samseong-dong, Gangnam-gu, Seoul, Republic of Korea, is the controller of the personal data described here. Contact: <a href="mailto:support@blocksdk.com">support@blocksdk.com</a>.</p>
+        </section>
+        <section aria-labelledby="en-s11">
+          <h2 id="en-s11">11. Changes to this policy</h2>
+          <p>We post changes on this page 7 days before they take effect, or 30 days before if they are less favorable to you.</p>
+          <p>Effective date: November 13, 2026</p>
+        </section>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <nav class="doc-nav" aria-label="하단 문서 이동 / Footer links">
+        <a href="../../" data-keep-lang>← Blockchen</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
